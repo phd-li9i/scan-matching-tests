@@ -1,0 +1,1300 @@
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0(0/778)
+Below 0.005: 3.08483(24/778)
+Below 0.01: 15.0386(117/778)
+Below 0.05: 75.964(591/778)
+Above 0.05: 5.9126(46/778)
+Mean error: 0.0233224 m
+Mean number of iterations: 64.0977
+Mean execution time: 0.0497923 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0642674(1/1556)
+Below 0.005: 3.3419(52/1556)
+Below 0.01: 15.0386(234/1556)
+Below 0.05: 75.3856(1173/1556)
+Above 0.05: 6.16967(96/1556)
+Mean error: 0.0230118 m
+Mean number of iterations: 64.4923
+Mean execution time: 0.0500924 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0428449(1/2334)
+Below 0.005: 3.29906(77/2334)
+Below 0.01: 14.6958(343/2334)
+Below 0.05: 76.2639(1780/2334)
+Above 0.05: 5.69837(133/2334)
+Mean error: 0.0226174 m
+Mean number of iterations: 64.5553
+Mean execution time: 0.0505011 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0321337(1/3112)
+Below 0.005: 3.02057(94/3112)
+Below 0.01: 14.9743(466/3112)
+Below 0.05: 76.446(2379/3112)
+Above 0.05: 5.52699(172/3112)
+Mean error: 0.022698 m
+Mean number of iterations: 64.6375
+Mean execution time: 0.0507132 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0257069(1/3890)
+Below 0.005: 2.9563(115/3890)
+Below 0.01: 14.3702(559/3890)
+Below 0.05: 76.7609(2986/3890)
+Above 0.05: 5.88689(229/3890)
+Mean error: 0.0231567 m
+Mean number of iterations: 64.6339
+Mean execution time: 0.0505847 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0428449(2/4668)
+Below 0.005: 3.23479(151/4668)
+Below 0.01: 14.3102(668/4668)
+Below 0.05: 76.521(3572/4668)
+Above 0.05: 5.89117(275/4668)
+Mean error: 0.0230484 m
+Mean number of iterations: 64.7678
+Mean execution time: 0.0507757 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0367242(2/5446)
+Below 0.005: 3.3419(182/5446)
+Below 0.01: 14.249(776/5446)
+Below 0.05: 76.5332(4168/5446)
+Above 0.05: 5.83915(318/5446)
+Mean error: 0.0230023 m
+Mean number of iterations: 64.6127
+Mean execution time: 0.0507408 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0482005(3/6224)
+Below 0.005: 3.40617(212/6224)
+Below 0.01: 14.2674(888/6224)
+Below 0.05: 76.446(4758/6224)
+Above 0.05: 5.83226(363/6224)
+Mean error: 0.0229239 m
+Mean number of iterations: 64.7505
+Mean execution time: 0.0508325 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0571265(4/7002)
+Below 0.005: 3.38475(237/7002)
+Below 0.01: 14.353(1005/7002)
+Below 0.05: 76.3353(5345/7002)
+Above 0.05: 5.86975(411/7002)
+Mean error: 0.0229128 m
+Mean number of iterations: 64.6627
+Mean execution time: 0.050773 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0514139(4/7780)
+Below 0.005: 3.39332(264/7780)
+Below 0.01: 14.3445(1116/7780)
+Below 0.05: 76.2211(5930/7780)
+Above 0.05: 5.98972(466/7780)
+Mean error: 0.0230023 m
+Mean number of iterations: 64.5958
+Mean execution time: 0.0506267 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0467399(4/8558)
+Below 0.005: 3.37696(289/8558)
+Below 0.01: 14.2206(1217/8558)
+Below 0.05: 76.5132(6548/8558)
+Above 0.05: 5.84249(500/8558)
+Mean error: 0.0229355 m
+Mean number of iterations: 64.4836
+Mean execution time: 0.0504999 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0428449(4/9336)
+Below 0.005: 3.37404(315/9336)
+Below 0.01: 14.2995(1335/9336)
+Below 0.05: 76.3603(7129/9336)
+Above 0.05: 5.92331(553/9336)
+Mean error: 0.0229674 m
+Mean number of iterations: 64.5156
+Mean execution time: 0.0504685 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0395491(4/10114)
+Below 0.005: 3.37156(341/10114)
+Below 0.01: 14.3069(1447/10114)
+Below 0.05: 76.32(7719/10114)
+Above 0.05: 5.96203(603/10114)
+Mean error: 0.0229878 m
+Mean number of iterations: 64.5795
+Mean execution time: 0.0504906 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0367242(4/10892)
+Below 0.005: 3.35108(365/10892)
+Below 0.01: 14.2398(1551/10892)
+Below 0.05: 76.4598(8328/10892)
+Above 0.05: 5.9126(644/10892)
+Mean error: 0.023016 m
+Mean number of iterations: 64.6101
+Mean execution time: 0.0504556 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0342759(4/11670)
+Below 0.005: 3.35047(391/11670)
+Below 0.01: 14.3787(1678/11670)
+Below 0.05: 76.341(8909/11670)
+Above 0.05: 5.89546(688/11670)
+Mean error: 0.0229823 m
+Mean number of iterations: 64.5739
+Mean execution time: 0.0503678 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0321337(4/12448)
+Below 0.005: 3.366(419/12448)
+Below 0.01: 14.428(1796/12448)
+Below 0.05: 76.2291(9489/12448)
+Above 0.05: 5.94473(740/12448)
+Mean error: 0.023004 m
+Mean number of iterations: 64.5652
+Mean execution time: 0.0503127 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0302435(4/13226)
+Below 0.005: 3.29654(436/13226)
+Below 0.01: 14.3505(1898/13226)
+Below 0.05: 76.4101(10106/13226)
+Above 0.05: 5.9126(782/13226)
+Mean error: 0.0230074 m
+Mean number of iterations: 64.6042
+Mean execution time: 0.0502995 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0285633(4/14004)
+Below 0.005: 3.3419(468/14004)
+Below 0.01: 14.2816(2000/14004)
+Below 0.05: 76.4567(10707/14004)
+Above 0.05: 5.89117(825/14004)
+Mean error: 0.0229794 m
+Mean number of iterations: 64.62
+Mean execution time: 0.0502833 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0338249(5/14782)
+Below 0.005: 3.35543(496/14782)
+Below 0.01: 14.2268(2103/14782)
+Below 0.05: 76.5458(11315/14782)
+Above 0.05: 5.83818(863/14782)
+Mean error: 0.0229639 m
+Mean number of iterations: 64.5907
+Mean execution time: 0.0502363 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0321337(5/15560)
+Below 0.005: 3.36118(523/15560)
+Below 0.01: 14.3509(2233/15560)
+Below 0.05: 76.4524(11896/15560)
+Above 0.05: 5.80334(903/15560)
+Mean error: 0.0229442 m
+Mean number of iterations: 64.5999
+Mean execution time: 0.0502158 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0306035(5/16338)
+Below 0.005: 3.35414(548/16338)
+Below 0.01: 14.3408(2343/16338)
+Below 0.05: 76.4598(12492/16338)
+Above 0.05: 5.81467(950/16338)
+Mean error: 0.0229718 m
+Mean number of iterations: 64.5561
+Mean execution time: 0.0501659 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0292124(5/17116)
+Below 0.005: 3.32437(569/17116)
+Below 0.01: 14.4134(2467/17116)
+Below 0.05: 76.4489(13085/17116)
+Above 0.05: 5.78406(990/17116)
+Mean error: 0.0229324 m
+Mean number of iterations: 64.5495
+Mean execution time: 0.0501532 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0279423(5/17894)
+Below 0.005: 3.31955(594/17894)
+Below 0.01: 14.4015(2577/17894)
+Below 0.05: 76.5117(13691/17894)
+Above 0.05: 5.73935(1027/17894)
+Mean error: 0.0229442 m
+Mean number of iterations: 64.5292
+Mean execution time: 0.0501167 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0267781(5/18672)
+Below 0.005: 3.29906(616/18672)
+Below 0.01: 14.353(2680/18672)
+Below 0.05: 76.5853(14300/18672)
+Above 0.05: 5.73586(1071/18672)
+Mean error: 0.0229345 m
+Mean number of iterations: 64.5279
+Mean execution time: 0.0501198 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0257069(5/19450)
+Below 0.005: 3.32648(647/19450)
+Below 0.01: 14.329(2787/19450)
+Below 0.05: 76.6324(14905/19450)
+Above 0.05: 5.68638(1106/19450)
+Mean error: 0.0229201 m
+Mean number of iterations: 64.5476
+Mean execution time: 0.0501131 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0247182(5/20228)
+Below 0.005: 3.39134(686/20228)
+Below 0.01: 14.3069(2894/20228)
+Below 0.05: 76.5325(15481/20228)
+Above 0.05: 5.74451(1162/20228)
+Mean error: 0.022914 m
+Mean number of iterations: 64.5103
+Mean execution time: 0.0500643 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0238027(5/21006)
+Below 0.005: 3.39903(714/21006)
+Below 0.01: 14.3054(3005/21006)
+Below 0.05: 76.521(16074/21006)
+Above 0.05: 5.75074(1208/21006)
+Mean error: 0.0229214 m
+Mean number of iterations: 64.506
+Mean execution time: 0.0500483 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0229526(5/21784)
+Below 0.005: 3.40158(741/21784)
+Below 0.01: 14.3133(3118/21784)
+Below 0.05: 76.5286(16671/21784)
+Above 0.05: 5.73357(1249/21784)
+Mean error: 0.0229096 m
+Mean number of iterations: 64.518
+Mean execution time: 0.0500381 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0265934(6/22562)
+Below 0.005: 3.40395(768/22562)
+Below 0.01: 14.2629(3218/22562)
+Below 0.05: 76.5934(17281/22562)
+Above 0.05: 5.71315(1289/22562)
+Mean error: 0.0229 m
+Mean number of iterations: 64.5178
+Mean execution time: 0.0500233 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0299914(7/23340)
+Below 0.005: 3.41045(796/23340)
+Below 0.01: 14.3145(3341/23340)
+Below 0.05: 76.5424(17865/23340)
+Above 0.05: 5.70266(1331/23340)
+Mean error: 0.0228624 m
+Mean number of iterations: 64.509
+Mean execution time: 0.0500012 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0331702(8/24118)
+Below 0.005: 3.42897(827/24118)
+Below 0.01: 14.2964(3448/24118)
+Below 0.05: 76.5155(18454/24118)
+Above 0.05: 5.72601(1381/24118)
+Mean error: 0.0228666 m
+Mean number of iterations: 64.5089
+Mean execution time: 0.0500215 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0401671(10/24896)
+Below 0.005: 3.45035(859/24896)
+Below 0.01: 14.2633(3551/24896)
+Below 0.05: 76.4701(19038/24896)
+Above 0.05: 5.77603(1438/24896)
+Mean error: 0.0228749 m
+Mean number of iterations: 64.5172
+Mean execution time: 0.0500586 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0389499(10/25674)
+Below 0.005: 3.48212(894/25674)
+Below 0.01: 14.2284(3653/25674)
+Below 0.05: 76.4392(19625/25674)
+Above 0.05: 5.81133(1492/25674)
+Mean error: 0.0229013 m
+Mean number of iterations: 64.5152
+Mean execution time: 0.0500534 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0378043(10/26452)
+Below 0.005: 3.53092(934/26452)
+Below 0.01: 14.1728(3749/26452)
+Below 0.05: 76.463(20226/26452)
+Above 0.05: 5.7954(1533/26452)
+Mean error: 0.0228699 m
+Mean number of iterations: 64.5341
+Mean execution time: 0.0501115 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0367242(10/27230)
+Below 0.005: 3.53287(962/27230)
+Below 0.01: 14.1645(3857/27230)
+Below 0.05: 76.4561(20819/27230)
+Above 0.05: 5.80977(1582/27230)
+Mean error: 0.022888 m
+Mean number of iterations: 64.5091
+Mean execution time: 0.0500815 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0357041(10/28008)
+Below 0.005: 3.53827(991/28008)
+Below 0.01: 14.2102(3980/28008)
+Below 0.05: 76.4532(21413/28008)
+Above 0.05: 5.76264(1614/28008)
+Mean error: 0.0228504 m
+Mean number of iterations: 64.4999
+Mean execution time: 0.0500635 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.038213(11/28786)
+Below 0.005: 3.53644(1018/28786)
+Below 0.01: 14.1944(4086/28786)
+Below 0.05: 76.4781(22015/28786)
+Above 0.05: 5.7528(1656/28786)
+Mean error: 0.0228364 m
+Mean number of iterations: 64.4915
+Mean execution time: 0.0500735 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0372074(11/29564)
+Below 0.005: 3.51441(1039/29564)
+Below 0.01: 14.1997(4198/29564)
+Below 0.05: 76.5052(22618/29564)
+Above 0.05: 5.74347(1698/29564)
+Mean error: 0.0228331 m
+Mean number of iterations: 64.5041
+Mean execution time: 0.0500819 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0362534(11/30342)
+Below 0.005: 3.53965(1074/30342)
+Below 0.01: 14.2047(4310/30342)
+Below 0.05: 76.4781(23205/30342)
+Above 0.05: 5.74122(1742/30342)
+Mean error: 0.0228252 m
+Mean number of iterations: 64.5177
+Mean execution time: 0.0500997 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0385604(12/31120)
+Below 0.005: 3.53792(1101/31120)
+Below 0.01: 14.2031(4420/31120)
+Below 0.05: 76.5039(23808/31120)
+Above 0.05: 5.71658(1779/31120)
+Mean error: 0.0228257 m
+Mean number of iterations: 64.4924
+Mean execution time: 0.05008 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0376199(12/31898)
+Below 0.005: 3.5206(1123/31898)
+Below 0.01: 14.1827(4524/31898)
+Below 0.05: 76.5252(24410/31898)
+Above 0.05: 5.7339(1829/31898)
+Mean error: 0.0228332 m
+Mean number of iterations: 64.4747
+Mean execution time: 0.0500784 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0367242(12/32676)
+Below 0.005: 3.52858(1153/32676)
+Below 0.01: 14.1664(4629/32676)
+Below 0.05: 76.5516(25014/32676)
+Above 0.05: 5.71673(1868/32676)
+Mean error: 0.0228099 m
+Mean number of iterations: 64.4613
+Mean execution time: 0.050082 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0358702(12/33454)
+Below 0.005: 3.5362(1183/33454)
+Below 0.01: 14.1538(4735/33454)
+Below 0.05: 76.5379(25605/33454)
+Above 0.05: 5.73623(1919/33454)
+Mean error: 0.0228093 m
+Mean number of iterations: 64.4317
+Mean execution time: 0.0500546 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0379762(13/34232)
+Below 0.005: 3.50841(1201/34232)
+Below 0.01: 14.171(4851/34232)
+Below 0.05: 76.5453(26203/34232)
+Above 0.05: 5.73732(1964/34232)
+Mean error: 0.0228197 m
+Mean number of iterations: 64.4118
+Mean execution time: 0.0500302 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0371322(13/35010)
+Below 0.005: 3.53899(1239/35010)
+Below 0.01: 14.1531(4955/35010)
+Below 0.05: 76.5296(26793/35010)
+Above 0.05: 5.74122(2010/35010)
+Mean error: 0.0228351 m
+Mean number of iterations: 64.4032
+Mean execution time: 0.0500269 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0391193(14/35788)
+Below 0.005: 3.52912(1263/35788)
+Below 0.01: 14.1528(5065/35788)
+Below 0.05: 76.5424(27393/35788)
+Above 0.05: 5.73656(2053/35788)
+Mean error: 0.0228282 m
+Mean number of iterations: 64.4112
+Mean execution time: 0.0500385 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0382869(14/36566)
+Below 0.005: 3.50872(1283/36566)
+Below 0.01: 14.1552(5176/36566)
+Below 0.05: 76.552(27992/36566)
+Above 0.05: 5.74577(2101/36566)
+Mean error: 0.0228367 m
+Mean number of iterations: 64.3918
+Mean execution time: 0.0500154 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0401671(15/37344)
+Below 0.005: 3.50525(1309/37344)
+Below 0.01: 14.1656(5290/37344)
+Below 0.05: 76.5531(28588/37344)
+Above 0.05: 5.73586(2142/37344)
+Mean error: 0.022828 m
+Mean number of iterations: 64.3955
+Mean execution time: 0.0500071 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0419705(16/38122)
+Below 0.005: 3.52028(1342/38122)
+Below 0.01: 14.1729(5403/38122)
+Below 0.05: 76.5621(29187/38122)
+Above 0.05: 5.70274(2174/38122)
+Mean error: 0.0228132 m
+Mean number of iterations: 64.4019
+Mean execution time: 0.0500029 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0411311(16/38900)
+Below 0.005: 3.52442(1371/38900)
+Below 0.01: 14.1414(5501/38900)
+Below 0.05: 76.5938(29795/38900)
+Above 0.05: 5.69923(2217/38900)
+Mean error: 0.0228159 m
+Mean number of iterations: 64.3906
+Mean execution time: 0.0499887 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0403246(16/39678)
+Below 0.005: 3.53596(1403/39678)
+Below 0.01: 14.1338(5608/39678)
+Below 0.05: 76.5966(30392/39678)
+Above 0.05: 5.69333(2259/39678)
+Mean error: 0.0228076 m
+Mean number of iterations: 64.3927
+Mean execution time: 0.0500038 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0395491(16/40456)
+Below 0.005: 3.55448(1438/40456)
+Below 0.01: 14.1339(5718/40456)
+Below 0.05: 76.577(30980/40456)
+Above 0.05: 5.69508(2304/40456)
+Mean error: 0.0228168 m
+Mean number of iterations: 64.4034
+Mean execution time: 0.0500155 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0436533(18/41234)
+Below 0.005: 3.55047(1464/41234)
+Below 0.01: 14.18(5847/41234)
+Below 0.05: 76.5655(31571/41234)
+Above 0.05: 5.66038(2334/41234)
+Mean error: 0.0228026 m
+Mean number of iterations: 64.4067
+Mean execution time: 0.0500376 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0428449(18/42012)
+Below 0.005: 3.53946(1487/42012)
+Below 0.01: 14.1793(5957/42012)
+Below 0.05: 76.5734(32170/42012)
+Above 0.05: 5.66505(2380/42012)
+Mean error: 0.0228053 m
+Mean number of iterations: 64.4023
+Mean execution time: 0.0500419 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0420659(18/42790)
+Below 0.005: 3.52185(1507/42790)
+Below 0.01: 14.1692(6063/42790)
+Below 0.05: 76.609(32781/42790)
+Above 0.05: 5.65786(2421/42790)
+Mean error: 0.0228088 m
+Mean number of iterations: 64.4009
+Mean execution time: 0.0500507 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.04361(19/43568)
+Below 0.005: 3.50028(1525/43568)
+Below 0.01: 14.1618(6170/43568)
+Below 0.05: 76.6228(33383/43568)
+Above 0.05: 5.67159(2471/43568)
+Mean error: 0.0228148 m
+Mean number of iterations: 64.3981
+Mean execution time: 0.0500453 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0450999(20/44346)
+Below 0.005: 3.4975(1551/44346)
+Below 0.01: 14.1523(6276/44346)
+Below 0.05: 76.5999(33969/44346)
+Above 0.05: 5.70514(2530/44346)
+Mean error: 0.0228211 m
+Mean number of iterations: 64.3943
+Mean execution time: 0.0500346 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0465384(21/45124)
+Below 0.005: 3.49481(1577/45124)
+Below 0.01: 14.1455(6383/45124)
+Below 0.05: 76.5978(34564/45124)
+Above 0.05: 5.71536(2579/45124)
+Mean error: 0.0228295 m
+Mean number of iterations: 64.3832
+Mean execution time: 0.0500229 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0457496(21/45902)
+Below 0.005: 3.49004(1602/45902)
+Below 0.01: 14.1475(6494/45902)
+Below 0.05: 76.5827(35153/45902)
+Above 0.05: 5.73395(2632/45902)
+Mean error: 0.022828 m
+Mean number of iterations: 64.378
+Mean execution time: 0.0500214 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0471294(22/46680)
+Below 0.005: 3.49829(1633/46680)
+Below 0.01: 14.1153(6589/46680)
+Below 0.05: 76.6238(35768/46680)
+Above 0.05: 5.71551(2668/46680)
+Mean error: 0.0228198 m
+Mean number of iterations: 64.3854
+Mean execution time: 0.0500189 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0484639(23/47458)
+Below 0.005: 3.49994(1661/47458)
+Below 0.01: 14.0861(6685/47458)
+Below 0.05: 76.6383(36371/47458)
+Above 0.05: 5.72717(2718/47458)
+Mean error: 0.022826 m
+Mean number of iterations: 64.3777
+Mean execution time: 0.0500074 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0476822(23/48236)
+Below 0.005: 3.50361(1690/48236)
+Below 0.01: 14.0953(6799/48236)
+Below 0.05: 76.6233(36960/48236)
+Above 0.05: 5.73016(2764/48236)
+Mean error: 0.0228307 m
+Mean number of iterations: 64.3727
+Mean execution time: 0.0499951 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0469254(23/49014)
+Below 0.005: 3.50104(1716/49014)
+Below 0.01: 14.1143(6918/49014)
+Below 0.05: 76.6495(37569/49014)
+Above 0.05: 5.68817(2788/49014)
+Mean error: 0.0228058 m
+Mean number of iterations: 64.3697
+Mean execution time: 0.0499857 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0461922(23/49792)
+Below 0.005: 3.5106(1748/49792)
+Below 0.01: 14.0826(7012/49792)
+Below 0.05: 76.679(38180/49792)
+Above 0.05: 5.68164(2829/49792)
+Mean error: 0.0228119 m
+Mean number of iterations: 64.375
+Mean execution time: 0.0499814 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0454815(23/50570)
+Below 0.005: 3.5001(1770/50570)
+Below 0.01: 14.0854(7123/50570)
+Below 0.05: 76.6976(38786/50570)
+Above 0.05: 5.67135(2868/50570)
+Mean error: 0.0227959 m
+Mean number of iterations: 64.3752
+Mean execution time: 0.0499825 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0447924(23/51348)
+Below 0.005: 3.49381(1794/51348)
+Below 0.01: 14.0843(7232/51348)
+Below 0.05: 76.6885(39378/51348)
+Above 0.05: 5.68863(2921/51348)
+Mean error: 0.0227966 m
+Mean number of iterations: 64.3668
+Mean execution time: 0.0499801 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0441239(23/52126)
+Below 0.005: 3.49346(1821/52126)
+Below 0.01: 14.0736(7336/52126)
+Below 0.05: 76.6911(39976/52126)
+Above 0.05: 5.69773(2970/52126)
+Mean error: 0.0228044 m
+Mean number of iterations: 64.372
+Mean execution time: 0.0499854 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.043475(23/52904)
+Below 0.005: 3.47989(1841/52904)
+Below 0.01: 14.05(7433/52904)
+Below 0.05: 76.7352(40596/52904)
+Above 0.05: 5.69144(3011/52904)
+Mean error: 0.022806 m
+Mean number of iterations: 64.3767
+Mean execution time: 0.0499867 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0447077(24/53682)
+Below 0.005: 3.47416(1865/53682)
+Below 0.01: 14.0569(7546/53682)
+Below 0.05: 76.7445(41198/53682)
+Above 0.05: 5.67974(3049/53682)
+Mean error: 0.0228037 m
+Mean number of iterations: 64.3693
+Mean execution time: 0.0499782 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0459053(25/54460)
+Below 0.005: 3.49247(1902/54460)
+Below 0.01: 14.047(7650/54460)
+Below 0.05: 76.7499(41798/54460)
+Above 0.05: 5.66471(3085/54460)
+Mean error: 0.0227853 m
+Mean number of iterations: 64.3788
+Mean execution time: 0.0499843 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0452587(25/55238)
+Below 0.005: 3.48673(1926/55238)
+Below 0.01: 14.0483(7760/55238)
+Below 0.05: 76.7642(42403/55238)
+Above 0.05: 5.65553(3124/55238)
+Mean error: 0.0227772 m
+Mean number of iterations: 64.3773
+Mean execution time: 0.0499765 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0446301(25/56016)
+Below 0.005: 3.48829(1954/56016)
+Below 0.01: 14.0371(7863/56016)
+Below 0.05: 76.7745(43006/56016)
+Above 0.05: 5.65553(3168/56016)
+Mean error: 0.0227813 m
+Mean number of iterations: 64.3675
+Mean execution time: 0.0499627 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0457795(26/56794)
+Below 0.005: 3.48804(1981/56794)
+Below 0.01: 14.0314(7969/56794)
+Below 0.05: 76.7687(43600/56794)
+Above 0.05: 5.66609(3218/56794)
+Mean error: 0.022789 m
+Mean number of iterations: 64.372
+Mean execution time: 0.0499608 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0468978(27/57572)
+Below 0.005: 3.49475(2012/57572)
+Below 0.01: 14.0624(8096/57572)
+Below 0.05: 76.7404(44181/57572)
+Above 0.05: 5.65553(3256/57572)
+Mean error: 0.0227745 m
+Mean number of iterations: 64.3724
+Mean execution time: 0.049958 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0462725(27/58350)
+Below 0.005: 3.50814(2047/58350)
+Below 0.01: 14.0805(8216/58350)
+Below 0.05: 76.6924(44750/58350)
+Above 0.05: 5.67266(3310/58350)
+Mean error: 0.0227815 m
+Mean number of iterations: 64.3661
+Mean execution time: 0.0499492 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0456636(27/59128)
+Below 0.005: 3.50595(2073/59128)
+Below 0.01: 14.1033(8339/59128)
+Below 0.05: 76.6693(45333/59128)
+Above 0.05: 5.67582(3356/59128)
+Mean error: 0.0227833 m
+Mean number of iterations: 64.3634
+Mean execution time: 0.049945 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0450706(27/59906)
+Below 0.005: 3.50883(2102/59906)
+Below 0.01: 14.1021(8448/59906)
+Below 0.05: 76.6634(45926/59906)
+Above 0.05: 5.68057(3403/59906)
+Mean error: 0.0227833 m
+Mean number of iterations: 64.3582
+Mean execution time: 0.0499377 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0444928(27/60684)
+Below 0.005: 3.51823(2135/60684)
+Below 0.01: 14.091(8551/60684)
+Below 0.05: 76.6644(46523/60684)
+Above 0.05: 5.68189(3448/60684)
+Mean error: 0.0227863 m
+Mean number of iterations: 64.3743
+Mean execution time: 0.0499476 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0439296(27/61462)
+Below 0.005: 3.53389(2172/61462)
+Below 0.01: 14.1063(8670/61462)
+Below 0.05: 76.6376(47103/61462)
+Above 0.05: 5.67831(3490/61462)
+Mean error: 0.022788 m
+Mean number of iterations: 64.3652
+Mean execution time: 0.0499387 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0433805(27/62240)
+Below 0.005: 3.54274(2205/62240)
+Below 0.01: 14.1083(8781/62240)
+Below 0.05: 76.6356(47698/62240)
+Above 0.05: 5.66999(3529/62240)
+Mean error: 0.0227808 m
+Mean number of iterations: 64.3664
+Mean execution time: 0.049938 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0428449(27/63018)
+Below 0.005: 3.54502(2234/63018)
+Below 0.01: 14.1229(8900/63018)
+Below 0.05: 76.6337(48293/63018)
+Above 0.05: 5.65553(3564/63018)
+Mean error: 0.0227656 m
+Mean number of iterations: 64.368
+Mean execution time: 0.0499398 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0423224(27/63796)
+Below 0.005: 3.53941(2258/63796)
+Below 0.01: 14.1106(9002/63796)
+Below 0.05: 76.6662(48910/63796)
+Above 0.05: 5.64142(3599/63796)
+Mean error: 0.0227655 m
+Mean number of iterations: 64.3818
+Mean execution time: 0.0499469 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0433611(28/64574)
+Below 0.005: 3.55406(2295/64574)
+Below 0.01: 14.0955(9102/64574)
+Below 0.05: 76.6748(49512/64574)
+Above 0.05: 5.6323(3637/64574)
+Mean error: 0.0227566 m
+Mean number of iterations: 64.3831
+Mean execution time: 0.0499438 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0443751(29/65352)
+Below 0.005: 3.55154(2321/65352)
+Below 0.01: 14.1067(9219/65352)
+Below 0.05: 76.674(50108/65352)
+Above 0.05: 5.62339(3675/65352)
+Mean error: 0.0227547 m
+Mean number of iterations: 64.3916
+Mean execution time: 0.0499475 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0468774(31/66130)
+Below 0.005: 3.55058(2348/66130)
+Below 0.01: 14.0768(9309/66130)
+Below 0.05: 76.7035(50724/66130)
+Above 0.05: 5.62226(3718/66130)
+Mean error: 0.0227606 m
+Mean number of iterations: 64.3887
+Mean execution time: 0.0499398 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0463323(31/66908)
+Below 0.005: 3.54517(2372/66908)
+Below 0.01: 14.076(9418/66908)
+Below 0.05: 76.7008(51319/66908)
+Above 0.05: 5.63161(3768/66908)
+Mean error: 0.0227711 m
+Mean number of iterations: 64.3854
+Mean execution time: 0.0499331 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0457997(31/67686)
+Below 0.005: 3.53249(2391/67686)
+Below 0.01: 14.0901(9537/67686)
+Below 0.05: 76.6894(51908/67686)
+Above 0.05: 5.64223(3819/67686)
+Mean error: 0.0227737 m
+Mean number of iterations: 64.391
+Mean execution time: 0.0499345 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0452793(31/68464)
+Below 0.005: 3.52448(2413/68464)
+Below 0.01: 14.0965(9651/68464)
+Below 0.05: 76.6972(52510/68464)
+Above 0.05: 5.63654(3859/68464)
+Mean error: 0.0227694 m
+Mean number of iterations: 64.3899
+Mean execution time: 0.0499312 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0462147(32/69242)
+Below 0.005: 3.51232(2432/69242)
+Below 0.01: 14.0926(9758/69242)
+Below 0.05: 76.7193(53122/69242)
+Above 0.05: 5.62953(3898/69242)
+Mean error: 0.02277 m
+Mean number of iterations: 64.389
+Mean execution time: 0.0499281 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0457012(32/70020)
+Below 0.005: 3.52042(2465/70020)
+Below 0.01: 14.1188(9886/70020)
+Below 0.05: 76.6838(53694/70020)
+Above 0.05: 5.63125(3943/70020)
+Mean error: 0.0227644 m
+Mean number of iterations: 64.3865
+Mean execution time: 0.0499226 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0466115(33/70798)
+Below 0.005: 3.52411(2495/70798)
+Below 0.01: 14.1318(10005/70798)
+Below 0.05: 76.6858(54292/70798)
+Above 0.05: 5.61174(3973/70798)
+Mean error: 0.0227547 m
+Mean number of iterations: 64.3781
+Mean execution time: 0.0499121 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0461048(33/71576)
+Below 0.005: 3.53191(2528/71576)
+Below 0.01: 14.1165(10104/71576)
+Below 0.05: 76.6975(54897/71576)
+Above 0.05: 5.60803(4014/71576)
+Mean error: 0.022753 m
+Mean number of iterations: 64.3783
+Mean execution time: 0.0499133 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0456091(33/72354)
+Below 0.005: 3.52987(2554/72354)
+Below 0.01: 14.1195(10216/72354)
+Below 0.05: 76.6855(55485/72354)
+Above 0.05: 5.61959(4066/72354)
+Mean error: 0.0227653 m
+Mean number of iterations: 64.3794
+Mean execution time: 0.0499102 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0451239(33/73132)
+Below 0.005: 3.52923(2581/73132)
+Below 0.01: 14.1033(10314/73132)
+Below 0.05: 76.6997(56092/73132)
+Above 0.05: 5.62271(4112/73132)
+Mean error: 0.0227686 m
+Mean number of iterations: 64.3708
+Mean execution time: 0.0499039 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0446489(33/73910)
+Below 0.005: 3.52456(2605/73910)
+Below 0.01: 14.0739(10402/73910)
+Below 0.05: 76.7244(56707/73910)
+Above 0.05: 5.63253(4163/73910)
+Mean error: 0.0227794 m
+Mean number of iterations: 64.3761
+Mean execution time: 0.0499065 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0441838(33/74688)
+Below 0.005: 3.51864(2628/74688)
+Below 0.01: 14.0558(10498/74688)
+Below 0.05: 76.7352(57312/74688)
+Above 0.05: 5.64615(4217/74688)
+Mean error: 0.0227868 m
+Mean number of iterations: 64.3643
+Mean execution time: 0.0498953 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0450534(34/75466)
+Below 0.005: 3.51814(2655/75466)
+Below 0.01: 14.0461(10600/75466)
+Below 0.05: 76.7458(57917/75466)
+Above 0.05: 5.64493(4260/75466)
+Mean error: 0.0227891 m
+Mean number of iterations: 64.3525
+Mean execution time: 0.0498938 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0445937(34/76244)
+Below 0.005: 3.50585(2673/76244)
+Below 0.01: 14.0601(10720/76244)
+Below 0.05: 76.7339(58505/76244)
+Above 0.05: 5.65553(4312/76244)
+Mean error: 0.0227912 m
+Mean number of iterations: 64.3538
+Mean execution time: 0.0498912 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0454416(35/77022)
+Below 0.005: 3.50419(2699/77022)
+Below 0.01: 14.0557(10826/77022)
+Below 0.05: 76.7495(59114/77022)
+Above 0.05: 5.64514(4348/77022)
+Mean error: 0.0227873 m
+Mean number of iterations: 64.3633
+Mean execution time: 0.0499011 sec
+Displacement uniform in [+/-0.15,+/-0.15,[-0.15,0.15]]
+Noise acting on laser's range measurements: Normal with sigma = 0.1
+Noise acting on map's range measurements: Normal with sigma = 0
+Invalidated rays randomly percentage = 0
+Invalidated rays sequentially percentage = 0
+Below 0.001: 0.0449871(35/77800)
+Below 0.005: 3.491(2716/77800)
+Below 0.01: 14.0617(10940/77800)
+Below 0.05: 76.7699(59727/77800)
+Above 0.05: 5.63239(4382/77800)
+Mean error: 0.0227876 m
+Mean number of iterations: 64.3613
+Mean execution time: 0.0499026 sec

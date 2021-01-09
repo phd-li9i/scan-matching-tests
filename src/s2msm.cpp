@@ -196,7 +196,12 @@ S2MSM::corruptRanges(std::vector<double>* scan, const double& sigma)
 
     for (int i = 0; i < scan->size(); i++)
     {
-      double n = distribution_n(generator_n);
+      double n = 0.0;
+      do
+      {
+        n = distribution_n(generator_n);
+      } while (scan->at(i) + n < 0); // ranges should be non-negative
+
       scan->at(i) += n;
     }
   }

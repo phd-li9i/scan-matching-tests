@@ -3,7 +3,7 @@
 //#define REPORTS 1
 //#define DEBUG 1
 //#define STORE 1
-//#define LOGS 1
+#define LOGS 1
 
 //#define TEST_ROTATION_ONLY_DISC
 //#define TEST_ROTATION_ONLY_CONT
