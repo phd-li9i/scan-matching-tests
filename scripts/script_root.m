@@ -10,9 +10,11 @@ if store
 end
 
 logs_dir = '/home/li9i/scan-matching-tests/logs';
-print_dir = '/scan-to-map-scan-matching-tests/scripts';
+print_dir = '/home/li9i/scan-matching-tests/scripts';
 
-alg_id ={'CSM', 'FMT/implm1', 'FMT/implm2'};
+alg_id = {'CSM', 'FMT/implm1', 'FMT/implm2', 'FMT/implm3', 'FMT/implm4'};
+alg_id_txt = {'CSM', 'implm1', 'implm2', 'implm3', 'implm4'};
+
 
 csm_confs = {
 '100_1_0.050000_0.035000_0.000000_0.000000_0.000000_0.000000',
@@ -47,7 +49,7 @@ csm_confs = {
 '100_1_0.200000_0.786000_0.100000_0.000000_0.000000_0.000000'
 };
 
-fmt2_confs = {
+fmt100_confs = {
 '100_2_0.050000_0.035000_0.000000_0.000000_0.000000_0.000000',
 '100_2_0.050000_0.035000_0.010000_0.000000_0.000000_0.000000',
 '100_2_0.050000_0.035000_0.030000_0.000000_0.000000_0.000000',
@@ -80,6 +82,39 @@ fmt2_confs = {
 '100_2_0.200000_0.786000_0.100000_0.000000_0.000000_0.000000'
 };
 
+fmt10_confs = {
+'10_2_0.050000_0.035000_0.000000_0.000000_0.000000_0.000000',
+'10_2_0.050000_0.035000_0.010000_0.000000_0.000000_0.000000',
+'10_2_0.050000_0.035000_0.030000_0.000000_0.000000_0.000000',
+'10_2_0.050000_0.035000_0.050000_0.000000_0.000000_0.000000',
+'10_2_0.050000_0.035000_0.100000_0.000000_0.000000_0.000000',
+'10_2_0.100000_0.070000_0.000000_0.000000_0.000000_0.000000',
+'10_2_0.100000_0.070000_0.010000_0.000000_0.000000_0.000000',
+'10_2_0.100000_0.070000_0.030000_0.000000_0.000000_0.000000',
+'10_2_0.100000_0.070000_0.050000_0.000000_0.000000_0.000000',
+'10_2_0.100000_0.070000_0.100000_0.000000_0.000000_0.000000',
+'10_2_0.150000_0.150000_0.000000_0.000000_0.000000_0.000000',
+'10_2_0.150000_0.150000_0.010000_0.000000_0.000000_0.000000',
+'10_2_0.150000_0.150000_0.030000_0.000000_0.000000_0.000000',
+'10_2_0.150000_0.150000_0.050000_0.000000_0.000000_0.000000',
+'10_2_0.150000_0.150000_0.100000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.300000_0.000000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.300000_0.010000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.300000_0.030000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.300000_0.050000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.300000_0.100000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.560000_0.000000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.560000_0.010000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.560000_0.030000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.560000_0.050000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.560000_0.100000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.786000_0.000000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.786000_0.010000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.786000_0.030000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.786000_0.050000_0.000000_0.000000_0.000000',
+'10_2_0.200000_0.786000_0.100000_0.000000_0.000000_0.000000'
+};
+
 
 metrics_dirs = {'errors/pose_errors.txt',
 'errors/orientation_errors.txt',
@@ -105,76 +140,131 @@ for i=1:size(csm_confs)
 end
 
 fmt1_pose_errors = {};
-for i=1:size(fmt2_confs)
-  load(strcat(logs_dir, '/', alg_id{2}, '/', fmt2_confs{i}, '/', metrics_dirs{1}));
+for i=1:size(fmt100_confs)
+  load(strcat(logs_dir, '/', alg_id{2}, '/', fmt100_confs{i}, '/', metrics_dirs{1}));
   fmt1_pose_errors{end+1} = mean(reshape(pose_errors, [778,100]),1);
 end
 
 fmt2_pose_errors = {};
-for i=1:size(fmt2_confs)
-  load(strcat(logs_dir, '/', alg_id{3}, '/', fmt2_confs{i}, '/', metrics_dirs{1}));
+for i=1:size(fmt100_confs)
+  load(strcat(logs_dir, '/', alg_id{3}, '/', fmt100_confs{i}, '/', metrics_dirs{1}));
   fmt2_pose_errors{end+1} = mean(reshape(pose_errors, [778,100]),1);
+end
+
+fmt3_pose_errors = {};
+for i=1:size(fmt100_confs)
+  load(strcat(logs_dir, '/', alg_id{4}, '/', fmt100_confs{i}, '/', metrics_dirs{1}));
+  fmt3_pose_errors{end+1} = mean(reshape(pose_errors, [778,100]),1);
+end
+
+fmt4_pose_errors = {};
+for i=1:size(fmt100_confs)
+  load(strcat(logs_dir, '/', alg_id{5}, '/', fmt100_confs{i}, '/', metrics_dirs{1}));
+  fmt4_pose_errors{end+1} = mean(reshape(pose_errors, [778,100]),1);
 end
 
 % Split into 6 rows (6 levels of displacement) x 5 columns (5 levels of sensor noise)
 csm_pose_errors = reshape(csm_pose_errors, 5,6)';
 fmt1_pose_errors = reshape(fmt1_pose_errors, 5,6)';
 fmt2_pose_errors = reshape(fmt2_pose_errors, 5,6)';
+fmt3_pose_errors = reshape(fmt3_pose_errors, 5,6)';
+fmt4_pose_errors = reshape(fmt4_pose_errors, 5,6)';
 
-sp = [1*ones(1,100), 2*ones(1,100), ...
+sp100 = [1*ones(1,100), 2*ones(1,100), ...
       5*ones(1,100), 6*ones(1,100), ...
       9*ones(1,100), 10*ones(1,100), ...
       13*ones(1,100), 14*ones(1,100), ...
       17*ones(1,100), 18*ones(1,100)];
 
+sp10 = [1*ones(1,100), 2*ones(1,10), ...
+      5*ones(1,100), 6*ones(1,10), ...
+      9*ones(1,100), 10*ones(1,10), ...
+      13*ones(1,100), 14*ones(1,10), ...
+      17*ones(1,100), 18*ones(1,10)];
+
+
+errors1 = csm_pose_errors;
+errors2 = fmt1_pose_errors;
+
 h1 = figure(1);
 set(h1,'position',[1 1 500 500]);
-b1 = boxplot([csm_pose_errors{1,1}, fmt2_pose_errors{1,1}, ...
-              csm_pose_errors{1,2}, fmt2_pose_errors{1,2}, ...
-              csm_pose_errors{1,3}, fmt2_pose_errors{1,3}, ...
-              csm_pose_errors{1,4}, fmt2_pose_errors{1,4}, ...
-              csm_pose_errors{1,5}, fmt2_pose_errors{1,5}], sp);
+b1 = boxplot([errors1{1,1}, errors2{1,1}, ...
+              errors1{1,2}, errors2{1,2}, ...
+              errors1{1,3}, errors2{1,3}, ...
+              errors1{1,4}, errors2{1,4}, ...
+              errors1{1,5}, errors2{1,5}], sp100);
+
+if store
+  img_file = strcat(print_dir, '/errors_', alg_id_txt{2}, '_1.eps');
+  drawnow ("epslatex", img_file, false);
+end
 
 h2 = figure(2);
 set(h2,'position',[1 1 500 500]);
-b2 = boxplot([csm_pose_errors{2,1}, fmt2_pose_errors{2,1}, ...
-              csm_pose_errors{2,2}, fmt2_pose_errors{2,2}, ...
-              csm_pose_errors{2,3}, fmt2_pose_errors{2,3}, ...
-              csm_pose_errors{2,4}, fmt2_pose_errors{2,4}, ...
-              csm_pose_errors{2,5}, fmt2_pose_errors{2,5}], sp);
+b2 = boxplot([errors1{2,1}, errors2{2,1}, ...
+              errors1{2,2}, errors2{2,2}, ...
+              errors1{2,3}, errors2{2,3}, ...
+              errors1{2,4}, errors2{2,4}, ...
+              errors1{2,5}, errors2{2,5}], sp100);
+
+if store
+  img_file = strcat(print_dir, '/errors_', alg_id_txt{2}, '_2.eps');
+  drawnow ("epslatex", img_file, false);
+end
 
 h3 = figure(3);
 set(h3,'position',[1 1 500 500]);
-b3 = boxplot([csm_pose_errors{3,1}, fmt2_pose_errors{3,1}, ...
-              csm_pose_errors{3,2}, fmt2_pose_errors{3,2}, ...
-              csm_pose_errors{3,3}, fmt2_pose_errors{3,3}, ...
-              csm_pose_errors{3,4}, fmt2_pose_errors{3,4}, ...
-              csm_pose_errors{3,5}, fmt2_pose_errors{3,5}], sp);
+b3 = boxplot([errors1{3,1}, errors2{3,1}, ...
+              errors1{3,2}, errors2{3,2}, ...
+              errors1{3,3}, errors2{3,3}, ...
+              errors1{3,4}, errors2{3,4}, ...
+              errors1{3,5}, errors2{3,5}], sp100);
+
+if store
+  img_file = strcat(print_dir, '/errors_', alg_id_txt{2}, '_3.eps');
+  drawnow ("epslatex", img_file, false);
+end
 
 
 h4 = figure(4);
 set(h4,'position',[1 1 500 500]);
-b4 = boxplot([csm_pose_errors{4,1}, fmt2_pose_errors{4,1}, ...
-              csm_pose_errors{4,2}, fmt2_pose_errors{4,2}, ...
-              csm_pose_errors{4,3}, fmt2_pose_errors{4,3}, ...
-              csm_pose_errors{4,4}, fmt2_pose_errors{4,4}, ...
-              csm_pose_errors{4,5}, fmt2_pose_errors{4,5}], sp);
+b4 = boxplot([errors1{4,1}, errors2{4,1}, ...
+              errors1{4,2}, errors2{4,2}, ...
+              errors1{4,3}, errors2{4,3}, ...
+              errors1{4,4}, errors2{4,4}, ...
+              errors1{4,5}, errors2{4,5}], sp100);
+
+if store
+  img_file = strcat(print_dir, '/errors_', alg_id_txt{2}, '_4.eps');
+  drawnow ("epslatex", img_file, false);
+end
 
 h5 = figure(5);
 set(h5,'position',[1 1 500 500]);
-b5 = boxplot([csm_pose_errors{5,1}, fmt2_pose_errors{5,1}, ...
-              csm_pose_errors{5,2}, fmt2_pose_errors{5,2}, ...
-              csm_pose_errors{5,3}, fmt2_pose_errors{5,3}, ...
-              csm_pose_errors{5,4}, fmt2_pose_errors{5,4}, ...
-              csm_pose_errors{5,5}, fmt2_pose_errors{5,5}], sp);
+b5 = boxplot([errors1{5,1}, errors2{5,1}, ...
+              errors1{5,2}, errors2{5,2}, ...
+              errors1{5,3}, errors2{5,3}, ...
+              errors1{5,4}, errors2{5,4}, ...
+              errors1{5,5}, errors2{5,5}], sp100);
+
+if store
+  img_file = strcat(print_dir, '/errors_', alg_id_txt{2}, '_5.eps');
+  drawnow ("epslatex", img_file, false);
+end
 
 h6 = figure(6);
 set(h6,'position',[1 1 500 500]);
-b6 = boxplot([csm_pose_errors{6,1}, fmt2_pose_errors{6,1}, ...
-              csm_pose_errors{6,2}, fmt2_pose_errors{6,2}, ...
-              csm_pose_errors{6,3}, fmt2_pose_errors{6,3}, ...
-              csm_pose_errors{6,4}, fmt2_pose_errors{6,4}, ...
-              csm_pose_errors{6,5}, fmt2_pose_errors{6,5}], sp);
+b6 = boxplot([errors1{6,1}, errors2{6,1}, ...
+              errors1{6,2}, errors2{6,2}, ...
+              errors1{6,3}, errors2{6,3}, ...
+              errors1{6,4}, errors2{6,4}, ...
+              errors1{6,5}, errors2{6,5}], sp100);
+
+if store
+  img_file = strcat(print_dir, '/errors_', alg_id_txt{2}, '_6.eps');
+  drawnow ("epslatex", img_file, false);
+end
+
 
 
 
@@ -191,76 +281,116 @@ for i=1:size(csm_confs)
 end
 
 fmt1_times = {};
-for i=1:size(fmt2_confs)
-  load(strcat(logs_dir, '/', alg_id{2}, '/', fmt2_confs{i}, '/', metrics_dirs{4}));
+for i=1:size(fmt100_confs)
+  load(strcat(logs_dir, '/', alg_id{2}, '/', fmt100_confs{i}, '/', metrics_dirs{4}));
   fmt1_times{end+1} = mean(reshape(total_times, [778,100]),1);
 end
 
 fmt2_times = {};
-for i=1:size(fmt2_confs)
-  load(strcat(logs_dir, '/', alg_id{3}, '/', fmt2_confs{i}, '/', metrics_dirs{4}));
+for i=1:size(fmt100_confs)
+  load(strcat(logs_dir, '/', alg_id{3}, '/', fmt100_confs{i}, '/', metrics_dirs{4}));
   fmt2_times{end+1} = mean(reshape(total_times, [778,100]),1);
+end
+
+fmt3_times = {};
+for i=1:size(fmt100_confs)
+  load(strcat(logs_dir, '/', alg_id{4}, '/', fmt100_confs{i}, '/', metrics_dirs{4}));
+  fmt3_times{end+1} = mean(reshape(total_times, [778,100]),1);
+end
+
+fmt4_times = {};
+for i=1:size(fmt100_confs)
+  load(strcat(logs_dir, '/', alg_id{5}, '/', fmt100_confs{i}, '/', metrics_dirs{4}));
+  fmt4_times{end+1} = mean(reshape(total_times, [778,100]),1);
 end
 
 % Split into 6 rows (6 levels of displacement) x 5 columns (5 levels of sensor noise)
 csm_times = reshape(csm_times, 5,6)';
 fmt1_times = reshape(fmt1_times, 5,6)';
 fmt2_times = reshape(fmt2_times, 5,6)';
+fmt3_times = reshape(fmt3_times, 5,6)';
+fmt4_times = reshape(fmt4_times, 5,6)';
 
-sp = [1*ones(1,100), 2*ones(1,100), ...
-      5*ones(1,100), 6*ones(1,100), ...
-      9*ones(1,100), 10*ones(1,100), ...
-      13*ones(1,100), 14*ones(1,100), ...
-      17*ones(1,100), 18*ones(1,100)];
+
+times1 = csm_times;
+times2 = fmt1_times;
 
 h1 = figure(1);
 set(h1,'position',[1 1 500 500]);
-b1 = boxplot([fmt1_times{1,1}, fmt2_times{1,1}, ...
-              fmt1_times{1,2}, fmt2_times{1,2}, ...
-              fmt1_times{1,3}, fmt2_times{1,3}, ...
-              fmt1_times{1,4}, fmt2_times{1,4}, ...
-              fmt1_times{1,5}, fmt2_times{1,5}], sp);
+b1 = boxplot([times1{1,1}, times2{1,1}, ...
+              times1{1,2}, times2{1,2}, ...
+              times1{1,3}, times2{1,3}, ...
+              times1{1,4}, times2{1,4}, ...
+              times1{1,5}, times2{1,5}], sp100);
+if store
+  img_file = strcat(print_dir, '/times_', alg_id_txt{2}, '_1.eps');
+  drawnow ("epslatex", img_file, false);
+end
+
+
 
 h2 = figure(2);
 set(h2,'position',[1 1 500 500]);
-b2 = boxplot([fmt1_times{2,1}, fmt2_times{2,1}, ...
-              fmt1_times{2,2}, fmt2_times{2,2}, ...
-              fmt1_times{2,3}, fmt2_times{2,3}, ...
-              fmt1_times{2,4}, fmt2_times{2,4}, ...
-              fmt1_times{2,5}, fmt2_times{2,5}], sp);
+b2 = boxplot([times1{2,1}, times2{2,1}, ...
+              times1{2,2}, times2{2,2}, ...
+              times1{2,3}, times2{2,3}, ...
+              times1{2,4}, times2{2,4}, ...
+              times1{2,5}, times2{2,5}], sp100);
+if store
+  img_file = strcat(print_dir, '/times_', alg_id_txt{2}, '_2.eps');
+  drawnow ("epslatex", img_file, false);
+end
 
 h3 = figure(3);
 set(h3,'position',[1 1 500 500]);
-b3 = boxplot([fmt1_times{3,1}, fmt2_times{3,1}, ...
-              fmt1_times{3,2}, fmt2_times{3,2}, ...
-              fmt1_times{3,3}, fmt2_times{3,3}, ...
-              fmt1_times{3,4}, fmt2_times{3,4}, ...
-              fmt1_times{3,5}, fmt2_times{3,5}], sp);
+b3 = boxplot([times1{3,1}, times2{3,1}, ...
+              times1{3,2}, times2{3,2}, ...
+              times1{3,3}, times2{3,3}, ...
+              times1{3,4}, times2{3,4}, ...
+              times1{3,5}, times2{3,5}], sp100);
+if store
+  img_file = strcat(print_dir, '/times_', alg_id_txt{2}, '_3.eps');
+  drawnow ("epslatex", img_file, false);
+end
 
 
 h4 = figure(4);
 set(h4,'position',[1 1 500 500]);
-b4 = boxplot([fmt1_times{4,1}, fmt2_times{4,1}, ...
-              fmt1_times{4,2}, fmt2_times{4,2}, ...
-              fmt1_times{4,3}, fmt2_times{4,3}, ...
-              fmt1_times{4,4}, fmt2_times{4,4}, ...
-              fmt1_times{4,5}, fmt2_times{4,5}], sp);
+b4 = boxplot([times1{4,1}, times2{4,1}, ...
+              times1{4,2}, times2{4,2}, ...
+              times1{4,3}, times2{4,3}, ...
+              times1{4,4}, times2{4,4}, ...
+              times1{4,5}, times2{4,5}], sp100);
+if store
+  img_file = strcat(print_dir, '/times_', alg_id_txt{2}, '_4.eps');
+  drawnow ("epslatex", img_file, false);
+end
 
 h5 = figure(5);
 set(h5,'position',[1 1 500 500]);
-b5 = boxplot([fmt1_times{5,1}, fmt2_times{5,1}, ...
-              fmt1_times{5,2}, fmt2_times{5,2}, ...
-              fmt1_times{5,3}, fmt2_times{5,3}, ...
-              fmt1_times{5,4}, fmt2_times{5,4}, ...
-              fmt1_times{5,5}, fmt2_times{5,5}], sp);
+b5 = boxplot([times1{5,1}, times2{5,1}, ...
+              times1{5,2}, times2{5,2}, ...
+              times1{5,3}, times2{5,3}, ...
+              times1{5,4}, times2{5,4}, ...
+              times1{5,5}, times2{5,5}], sp100);
+if store
+  img_file = strcat(print_dir, '/times_', alg_id_txt{2}, '_5.eps');
+  drawnow ("epslatex", img_file, false);
+end
 
 h6 = figure(6);
 set(h6,'position',[1 1 500 500]);
-b6 = boxplot([fmt1_times{6,1}, fmt2_times{6,1}, ...
-              fmt1_times{6,2}, fmt2_times{6,2}, ...
-              fmt1_times{6,3}, fmt2_times{6,3}, ...
-              fmt1_times{6,4}, fmt2_times{6,4}, ...
-              fmt1_times{6,5}, fmt2_times{6,5}], sp);
+b6 = boxplot([times1{6,1}, times2{6,1}, ...
+              times1{6,2}, times2{6,2}, ...
+              times1{6,3}, times2{6,3}, ...
+              times1{6,4}, times2{6,4}, ...
+              times1{6,5}, times2{6,5}], sp100);
+
+
+if store
+  img_file = strcat(print_dir, '/times_', alg_id_txt{2}, '_6.eps');
+  drawnow ("epslatex", img_file, false);
+end
 
 return;
 
