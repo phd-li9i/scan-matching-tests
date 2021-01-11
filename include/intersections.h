@@ -29,6 +29,20 @@ class X
       const std::vector< std::pair<double, double> >& lines,
       const unsigned int& num_rays);
 
+    static std::vector< std::pair<double,double> > findExact2(
+      const std::tuple<double,double,double>& pose,
+      const std::vector< std::pair<double, double> >& lines,
+      const unsigned int& num_rays);
+
+    static bool findExactOneRay(
+      const double& px, const double& py, const double& tan_t_ray,
+      const double& x_far, const double& y_far,
+      const std::vector< std::pair<double, double> >& lines,
+      const int& start_search_id, const int& end_search_id,
+      const bool& tan_peligro,
+      std::pair<double,double>* intersection_point,
+      int* start_segment_id);
+
 };
 
 #endif
