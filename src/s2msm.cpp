@@ -1153,13 +1153,6 @@ S2MSM::testOne(
   std::vector< std::pair<double,double> > virtual_scan_points;
   Utils::scan2points(virtual_scan_corrupted, virtual_pose, &virtual_scan_points);
 
-  // ---------------------------------------------------------------------------
-  // map stuff
-  // Is the map corrupted by noise?
-  // ---------------------------------------------------------------------------
-  std::vector< std::pair<double,double> > map_corrupted = map;
-  corruptMap(&map_corrupted, SIGMA_NOISE_MAP);
-
   // SCAN-MATCHING: instead of the map you get the virtual scan points
 
 #if defined (PRINTS)
@@ -1180,17 +1173,9 @@ S2MSM::testOne(
     Match::csm(real_scan_corrupted, virtual_scan_corrupted, virtual_pose,
       &input_, &output_, ip, op, result_pose);
 
-  /*
-  if (METHOD.compare("SKG") == 0)
-    Match::skg(real_scan_corrupted, real_pose, virtual_pose, map_corrupted,
-      r2rp_, ip, op, result_pose);
-  */
-
-  /*
-     if (METHOD.compare("SKGIT") == 0)
-     Match::skgIt(real_scan_corrupted, real_pose, virtual_pose, map_corrupted,
-     ip, op, result_pose);
-     */
+  if (METHOD.compare("NDT") == 0)
+    Match::ndt(real_scan_corrupted, virtual_scan_corrupted, virtual_pose,
+      ip, op, result_pose);
 
 #if defined (PRINTS)
   printf("______________________________________________________________\n");

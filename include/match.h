@@ -16,6 +16,12 @@
 #include <structs.h>
 #include <fftw3.h>
 
+#include <pcl/point_types.h>
+#include <pcl/registration/ndt.h>
+#include <pcl/filters/approximate_voxel_grid.h>
+#include <boost/thread/thread.hpp>
+#include <pcl/console/time.h>
+
 #include <cs2msm.h>
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_histogram.h>
@@ -49,6 +55,13 @@ class Match
       const std::vector< std::pair<double,double> >& map,
       const std::string& match_method,
       const fftw_plan& r2rp, const fftw_plan& c2rp,
+      const input_params& ip, output_params* op,
+      std::tuple<double,double,double>* result_pose);
+
+    static void ndt(
+      const std::vector< double >& real_scan,
+      const std::vector< double >& virtual_scan,
+      const std::tuple<double,double,double>& virtual_pose,
       const input_params& ip, output_params* op,
       std::tuple<double,double,double>* result_pose);
 

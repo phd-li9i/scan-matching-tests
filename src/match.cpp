@@ -622,6 +622,154 @@ void Match::fmtdbh(
 
 /*******************************************************************************
 */
+void Match::ndt(
+  const std::vector< double >& real_scan,
+  const std::vector< double >& virtual_scan,
+  const std::tuple<double,double,double>& virtual_pose,
+  const input_params& ip, output_params* op,
+  std::tuple<double,double,double>* result_pose)
+{
+  // Start the clock
+  std::chrono::high_resolution_clock::time_point start =
+    std::chrono::high_resolution_clock::now();
+
+  std::tuple<double,double,double> current_pose = virtual_pose;
+
+
+  // The total correspondence error
+  std::vector<double> c_errors;
+  std::vector<double> traj_x;
+  std::vector<double> traj_y;
+  std::vector<double> traj_t;
+
+  pcl::PointCloud<pcl::PointXYZ>::Ptr
+    real_scan_pcl(new pcl::PointCloud<pcl::PointXYZ>);
+
+  double x0 = 0.0;
+  double y0 = 0.0;
+  double t0 = 0.0;
+  double z0 = 0;
+  for (int i = 0; i < real_scan.size(); i++)
+  {
+    double px = x0 + real_scan[i]*cos(-M_PI + i*2*M_PI/real_scan.size() + t0);
+    double py = y0 + real_scan[i]*sin(-M_PI + i*2*M_PI/real_scan.size() + t0);
+
+    pcl::PointXYZ p;
+    p.x = px;
+    p.y = py;
+    p.z = z0;
+
+    real_scan_pcl->push_back(p);
+  }
+
+
+  // https://pointclouds.org/documentation/tutorials/normal_distributions_transform.html
+  pcl::PointCloud<pcl::PointXYZ>::Ptr
+    virtual_scan_pcl(new pcl::PointCloud<pcl::PointXYZ>);
+
+  for (int i = 0; i < virtual_scan.size(); i++)
+  {
+    double px =
+      x0 + virtual_scan[i]*cos(-M_PI + i*2*M_PI/virtual_scan.size() + t0);
+    double py =
+      y0 + virtual_scan[i]*sin(-M_PI + i*2*M_PI/virtual_scan.size() + t0);
+
+    pcl::PointXYZ p;
+    p.x = px;
+    p.y = py;
+    p.z = z0;
+
+    virtual_scan_pcl->push_back(p);
+  }
+
+
+  //Filter the input scan to about 10% of the original size to improve the matching speed.
+  pcl::PointCloud<pcl::PointXYZ>::Ptr filtered_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+
+  pcl::ApproximateVoxelGrid<pcl::PointXYZ> approximate_voxel_filter;
+
+  approximate_voxel_filter.setLeafSize(0.01, 0.01, 0.01); // 0.01, fixed
+  approximate_voxel_filter.setInputCloud(virtual_scan_pcl);
+  approximate_voxel_filter.filter(*filtered_cloud);
+
+  /*
+     cout << "Filtered cloud contains " << filtered_cloud->size()
+     << " data points " << endl;
+     */
+
+  //Initialize normal distribution transformation (NDT)
+  pcl::NormalDistributionsTransform<pcl::PointXYZ, pcl::PointXYZ> ndt;
+
+  //Set the NDT parameter dependent on the scale
+  //Set the minimum conversion difference for the termination condition
+  ndt.setTransformationEpsilon(0.0001);
+
+  //Set the maximum step size for More-Thuente line search
+  ndt.setStepSize(0.5);
+
+  //Set the resolution of the NDT grid structure (VoxelGridCovariance)
+  ndt.setResolution(0.5);
+
+  //Set the maximum number of matching iterations
+  int max_ndt_iterations = 35;
+  ndt.setMaximumIterations(max_ndt_iterations);
+
+  // Set the point cloud to be registered
+  ndt.setInputSource(filtered_cloud);
+
+  //Set point cloud registration target
+  ndt.setInputTarget(real_scan_pcl);
+
+  /*
+  //Set the initial alignment estimation result obtained by using the robot ranging method
+  Eigen::AngleAxisf init_rotation(0.6931, Eigen::Vector3f::UnitZ());
+  Eigen::Translation3f init_translation(1.79387, 0.720047, 0);
+  Eigen::Matrix4f init_guess = (init_translation * init_rotation).matrix();*/
+
+  //Calculate the required rigid body transformation to match the input point cloud to the target point cloud
+  pcl::PointCloud<pcl::PointXYZ>::Ptr output_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+  ndt.align(*output_cloud);
+  /*
+     cout << "NDT has converged:" << ndt.hasConverged()
+     << " score: " << ndt.getFitnessScore() << endl;
+     cout << "Transformation matrix:\n" << ndt.getFinalTransformation() << endl;
+     */
+
+  //std::cout << "Transformation matrix:\n" << ndt.getFinalTransformation() << std::endl;
+
+  double t = asin(ndt.getFinalTransformation()(0,1));
+  Utils::wrapAngle(&t);
+  std::get<2>(current_pose) += t;
+  Utils::wrapAngle(&std::get<2>(current_pose));
+
+  double x_pre = ndt.getFinalTransformation()(0,3);
+  double y_pre = ndt.getFinalTransformation()(1,3);
+  double t_est = std::get<2>(current_pose);
+  double dx = cos(t_est) * x_pre - sin(t_est) * y_pre;
+  double dy = sin(t_est) * x_pre + cos(t_est) * y_pre;
+
+  std::get<0>(current_pose) -= dx;
+  std::get<1>(current_pose) -= dy;
+
+
+  // Stop the clock
+  std::chrono::high_resolution_clock::time_point end =
+    std::chrono::high_resolution_clock::now();
+
+  std::chrono::duration<double> elapsed =
+    std::chrono::duration_cast< std::chrono::duration<double> >(end-start);
+
+  op->exec_time = elapsed.count();
+
+  *result_pose = current_pose;
+
+  op->rotation_iterations = 1;
+  op->translation_iterations = 1;
+}
+
+
+/*******************************************************************************
+*/
 void Match::l2recovery(
   const std::tuple<double,double,double>& input_pose,
   const std::vector< std::pair<double,double> >& map,
@@ -647,7 +795,7 @@ void Match::l2recovery(
 
 
 /*******************************************************************************
-void Match::skg(
+  void Match::skg(
   const std::vector< double >& real_scan,
   const std::tuple<double,double,double>& real_pose,
   const std::tuple<double,double,double>& virtual_pose,
@@ -655,136 +803,136 @@ void Match::skg(
   const fftw_plan& r2rp,
   const input_params& ip, output_params* op,
   std::tuple<double,double,double>* result_pose)
-{
-#if defined (PRINTS)
-  printf("virtual pose (%f,%f,%f) [skg1]\n",
-    std::get<0>(virtual_pose),
-    std::get<1>(virtual_pose),
-    std::get<2>(virtual_pose));
-#endif
-
-  std::chrono::high_resolution_clock::time_point start =
-    std::chrono::high_resolution_clock::now();
-
-  *result_pose = virtual_pose;
-
-  std::tuple<double,double,double> zero_pose;
-  std::get<0>(zero_pose) = 0.0;
-  std::get<1>(zero_pose) = 0.0;
-  std::get<2>(zero_pose) = 0.0;
-
-  // Real scan points
-  std::vector< std::pair<double,double> > real_scan_points;
-  Utils::scan2points(real_scan, zero_pose, &real_scan_points);
-
-  double prev_error = 1000.0;
-  double prev_d = -1.0;
-  double e_x = 0.0;
-  double e_y = 0.0;
-
-
-  std::vector<double> xs;
-  std::vector<double> ys;
-  std::vector<double> ts;
-
-  unsigned int it;
-  for (it = 0; it < ip.num_iterations; it++)
   {
-    std::vector<double> virtual_scan;
-
-    // Compute the virtual scan ...
-    Utils::scanFromPose(*result_pose, map, real_scan.size(), &virtual_scan);
-
-    // -------------------------------------------------------------------------
-    // Estimate translational displacement
-    //std::vector<double> d_v;
-    //double norm_x1 = 0.0;
-    //std::pair<double,double> errors_xy = Translation::tffCore(
-    //real_scan, virtual_scan, std::get<2>(*result_pose), prev_error,
-    //r2rp, &d_v, &norm_x1);
-    //e_x = errors_xy.first;
-    //e_y = errors_xy.second;
-
-    e_x = std::get<0>(real_pose) - std::get<0>(*result_pose);
-    e_y = std::get<1>(real_pose) - std::get<1>(*result_pose);
-
-
-    // ... and its 2D planar representation
-    //std::vector< std::pair<double,double> > virtual_scan_points;
-    //Utils::scan2points(virtual_scan, zero_pose, &virtual_scan_points);
-    //Utils::points2scan(virtual_scan_points, zero_pose, &virtual_scan);
-
-    // -------------------------------------------------------------------------
-    // Compute rotation exploiting the above estimates
-
-    // Compute R1, V1
-    std::vector<double> R1 = DFTUtils::getFirstDFTCoefficient(real_scan, r2rp);
-    std::vector<double> V1 = DFTUtils::getFirstDFTCoefficient(virtual_scan, r2rp);
-
-    // Compute delta_x, delta_y
-    std::vector< std::pair<double,double> > real_scan_points;
-    Utils::scan2points(real_scan, real_pose, &real_scan_points);
-
-    std::vector< std::pair<double,double> > virtual_scan_points;
-    Utils::scan2points(virtual_scan, *result_pose, &virtual_scan_points);
-
-    std::pair<double,double> d =
-      Utils::computeDeltaXY(real_scan_points, virtual_scan_points);
-
-
-    double dx = d.first;
-    double dy = d.second;
-
-    // This is the real deal
-    double nomin = R1[1]*(V1[0] + (e_x-dx)) + R1[0]*(-V1[1] + (e_y-dy));
-    double denom = R1[0]*(V1[0] + (e_x-dx)) + R1[1]*(+V1[1] - (e_y-dy));
-
-    double mov_t = atan(nomin/denom);
-    Utils::wrapAngle(&mov_t);
-
-
-    // Update pose
-    std::get<0>(*result_pose) += e_x;
-    std::get<1>(*result_pose) += e_y;
-    std::get<2>(*result_pose) += mov_t;
-    Utils::wrapAngle(&std::get<2>(*result_pose));
-
-    xs.push_back(std::get<0>(*result_pose));
-    ys.push_back(std::get<1>(*result_pose));
-    ts.push_back(std::get<2>(*result_pose));
-
-    if(!Utils::isPositionInMap(*result_pose, map))
-    {
-      l2recovery(virtual_pose, map, ip.xy_bound, ip.t_bound, result_pose);
-      it = 0;
-    }
-
-    prev_error = sqrtf(e_x*e_x + e_y*e_y);
-
 #if defined (PRINTS)
-    printf("result pose (%f,%f,%f) [skg1]\n",
-      std::get<0>(*result_pose),
-      std::get<1>(*result_pose),
-      std::get<2>(*result_pose));
+printf("virtual pose (%f,%f,%f) [skg1]\n",
+std::get<0>(virtual_pose),
+std::get<1>(virtual_pose),
+std::get<2>(virtual_pose));
 #endif
-  }
+
+std::chrono::high_resolution_clock::time_point start =
+std::chrono::high_resolution_clock::now();
+
+ *result_pose = virtual_pose;
+
+ std::tuple<double,double,double> zero_pose;
+ std::get<0>(zero_pose) = 0.0;
+ std::get<1>(zero_pose) = 0.0;
+ std::get<2>(zero_pose) = 0.0;
+
+// Real scan points
+std::vector< std::pair<double,double> > real_scan_points;
+Utils::scan2points(real_scan, zero_pose, &real_scan_points);
+
+double prev_error = 1000.0;
+double prev_d = -1.0;
+double e_x = 0.0;
+double e_y = 0.0;
 
 
-  std::chrono::high_resolution_clock::time_point end =
-    std::chrono::high_resolution_clock::now();
+std::vector<double> xs;
+std::vector<double> ys;
+std::vector<double> ts;
 
-  std::chrono::duration<double> elapsed =
-    std::chrono::duration_cast< std::chrono::duration<double> >(end-start);
-  op->exec_time = elapsed.count();
+unsigned int it;
+for (it = 0; it < ip.num_iterations; it++)
+{
+std::vector<double> virtual_scan;
 
-  op->translation_iterations = it;
-  op->rotation_iterations = it;
+// Compute the virtual scan ...
+Utils::scanFromPose(*result_pose, map, real_scan.size(), &virtual_scan);
+
+// -------------------------------------------------------------------------
+// Estimate translational displacement
+//std::vector<double> d_v;
+//double norm_x1 = 0.0;
+//std::pair<double,double> errors_xy = Translation::tffCore(
+//real_scan, virtual_scan, std::get<2>(*result_pose), prev_error,
+//r2rp, &d_v, &norm_x1);
+//e_x = errors_xy.first;
+//e_y = errors_xy.second;
+
+e_x = std::get<0>(real_pose) - std::get<0>(*result_pose);
+e_y = std::get<1>(real_pose) - std::get<1>(*result_pose);
+
+
+// ... and its 2D planar representation
+//std::vector< std::pair<double,double> > virtual_scan_points;
+//Utils::scan2points(virtual_scan, zero_pose, &virtual_scan_points);
+//Utils::points2scan(virtual_scan_points, zero_pose, &virtual_scan);
+
+// -------------------------------------------------------------------------
+// Compute rotation exploiting the above estimates
+
+// Compute R1, V1
+std::vector<double> R1 = DFTUtils::getFirstDFTCoefficient(real_scan, r2rp);
+std::vector<double> V1 = DFTUtils::getFirstDFTCoefficient(virtual_scan, r2rp);
+
+// Compute delta_x, delta_y
+std::vector< std::pair<double,double> > real_scan_points;
+Utils::scan2points(real_scan, real_pose, &real_scan_points);
+
+std::vector< std::pair<double,double> > virtual_scan_points;
+Utils::scan2points(virtual_scan, *result_pose, &virtual_scan_points);
+
+std::pair<double,double> d =
+Utils::computeDeltaXY(real_scan_points, virtual_scan_points);
+
+
+double dx = d.first;
+double dy = d.second;
+
+// This is the real deal
+double nomin = R1[1]*(V1[0] + (e_x-dx)) + R1[0]*(-V1[1] + (e_y-dy));
+double denom = R1[0]*(V1[0] + (e_x-dx)) + R1[1]*(+V1[1] - (e_y-dy));
+
+double mov_t = atan(nomin/denom);
+Utils::wrapAngle(&mov_t);
+
+
+// Update pose
+std::get<0>(*result_pose) += e_x;
+std::get<1>(*result_pose) += e_y;
+std::get<2>(*result_pose) += mov_t;
+Utils::wrapAngle(&std::get<2>(*result_pose));
+
+xs.push_back(std::get<0>(*result_pose));
+ys.push_back(std::get<1>(*result_pose));
+ts.push_back(std::get<2>(*result_pose));
+
+if(!Utils::isPositionInMap(*result_pose, map))
+{
+  l2recovery(virtual_pose, map, ip.xy_bound, ip.t_bound, result_pose);
+  it = 0;
+}
+
+prev_error = sqrtf(e_x*e_x + e_y*e_y);
 
 #if defined (PRINTS)
-  printf("output pose (%f,%f,%f) [skg1]\n",
-    std::get<0>(*result_pose),
-    std::get<1>(*result_pose),
-    std::get<2>(*result_pose));
+printf("result pose (%f,%f,%f) [skg1]\n",
+  std::get<0>(*result_pose),
+  std::get<1>(*result_pose),
+  std::get<2>(*result_pose));
+#endif
+}
+
+
+std::chrono::high_resolution_clock::time_point end =
+std::chrono::high_resolution_clock::now();
+
+std::chrono::duration<double> elapsed =
+std::chrono::duration_cast< std::chrono::duration<double> >(end-start);
+op->exec_time = elapsed.count();
+
+op->translation_iterations = it;
+op->rotation_iterations = it;
+
+#if defined (PRINTS)
+printf("output pose (%f,%f,%f) [skg1]\n",
+  std::get<0>(*result_pose),
+  std::get<1>(*result_pose),
+  std::get<2>(*result_pose));
 #endif
 }
 */

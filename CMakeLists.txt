@@ -15,8 +15,11 @@ pkg_check_modules(csm REQUIRED csm)
 
 find_package(CGAL REQUIRED)
 
+find_package(PCL 1.7 REQUIRED)
+
 INCLUDE_DIRECTORIES(include
   ${csm_INCLUDE_DIRS}
+  ${PCL_INCLUDE_DIRS}
   /usr/include/eigen3/)
 
 # Utils ########################################################################
@@ -101,7 +104,11 @@ target_link_libraries(cs2msm_lib ${csm_LIBRARIES} gpm_lib utils_lib)
 add_library(match_lib
   src/match.cpp)
 
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+
 target_link_libraries(match_lib
+  ${PCL_LIBRARIES}
   translation_lib
   fftw3
   rotation_lib
