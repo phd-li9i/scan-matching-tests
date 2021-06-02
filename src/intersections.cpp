@@ -299,6 +299,7 @@ std::vector< std::pair<double,double> > X::findExact(
       // The index of the second sensed point (in counter-clockwise order)
       int idx_2 = idx_1 + 1;
 
+
       if (idx_2 >= lines.size())
         idx_2 = fmod(idx_2, lines.size());
 
@@ -312,6 +313,7 @@ std::vector< std::pair<double,double> > X::findExact(
       double det_2 =
         (lines[idx_1].first-x_far)*(lines[idx_2].second-y_far)-
         (lines[idx_2].first-x_far)*(lines[idx_1].second-y_far);
+
 
       if (det_1 * det_2 <= 0.0)
       {
@@ -327,27 +329,45 @@ std::vector< std::pair<double,double> > X::findExact(
         {
           // They intersect!
 
-          double tan_two_points =
-            (lines[idx_2].second - lines[idx_1].second) /
-            (lines[idx_2].first - lines[idx_1].first);
-
           double x = 0.0;
           double y = 0.0;
 
-          if (!tan_peligro)
-          {
-            x = (py - lines[idx_1].second + tan_two_points * lines[idx_1].first
-              -tan_t_ray * px) / (tan_two_points - tan_t_ray);
+          double ttp_x = lines[idx_2].first - lines[idx_1].first;
+          double ttp_y = lines[idx_2].second - lines[idx_1].second;
 
-            y = py + tan_t_ray * (x - px);
+          // The line segment is perpendicular to the x-axis
+          if (ttp_x == 0.0)
+          {
+            // The ray is parallel to the x-axis
+            if (x_far == px)
+            {
+              x = lines[idx_1].first;
+              y = py;
+            }
+            else
+            {
+              x = lines[idx_1].first;
+              y = y_far + (y_far - py)/(x_far - px) * (x - x_far);
+            }
           }
           else
           {
-            x = px;
-            y = lines[idx_1].second + tan_two_points * (x - lines[idx_1].first);
-            //y = (lines[idx_2].second + lines[idx_1].second)/2;
-          }
+            double tan_two_points = ttp_y / ttp_x;
 
+            if (!tan_peligro)
+            {
+              x = (py - lines[idx_1].second + tan_two_points * lines[idx_1].first
+                -tan_t_ray * px) / (tan_two_points - tan_t_ray);
+
+              y = py + tan_t_ray * (x - px);
+            }
+            else
+            {
+              x = px;
+              y = lines[idx_1].second + tan_two_points * (x - lines[idx_1].first);
+              //y = (lines[idx_2].second + lines[idx_1].second)/2;
+            }
+          }
 
           candidate_points.push_back(std::make_pair(x,y));
         }
@@ -390,7 +410,7 @@ std::vector< std::pair<double,double> > X::findExact(
 
 
 /*******************************************************************************
- */
+*/
 std::vector< std::pair<double,double> > X::findExact2(
   const std::tuple<double,double,double>& pose,
   const std::vector< std::pair<double, double> >& lines,
@@ -521,27 +541,45 @@ bool X::findExactOneRay(
       {
         // They intersect!
 
-        double tan_two_points =
-          (lines[idx_2].second - lines[idx_1].second) /
-          (lines[idx_2].first - lines[idx_1].first);
-
         double x = 0.0;
         double y = 0.0;
 
-        if (!tan_peligro)
-        {
-          x = (py - lines[idx_1].second + tan_two_points * lines[idx_1].first
-            -tan_t_ray * px) / (tan_two_points - tan_t_ray);
+        double ttp_x = lines[idx_2].first - lines[idx_1].first;
+        double ttp_y = lines[idx_2].second - lines[idx_1].second;
 
-          y = py + tan_t_ray * (x - px);
+        // The line segment is perpendicular to the x-axis
+        if (ttp_x == 0.0)
+        {
+          // The ray is parallel to the x-axis
+          if (x_far == px)
+          {
+            x = lines[idx_1].first;
+            y = py;
+          }
+          else
+          {
+            x = lines[idx_1].first;
+            y = y_far + (y_far - py)/(x_far - px) * (x - x_far);
+          }
         }
         else
         {
-          x = px;
-          y = lines[idx_1].second + tan_two_points * (x - lines[idx_1].first);
-          //y = (lines[idx_2].second + lines[idx_1].second)/2;
-        }
+          double tan_two_points = ttp_y / ttp_x;
 
+          if (!tan_peligro)
+          {
+            x = (py - lines[idx_1].second + tan_two_points * lines[idx_1].first
+              -tan_t_ray * px) / (tan_two_points - tan_t_ray);
+
+            y = py + tan_t_ray * (x - px);
+          }
+          else
+          {
+            x = px;
+            y = lines[idx_1].second + tan_two_points * (x - lines[idx_1].first);
+            //y = (lines[idx_2].second + lines[idx_1].second)/2;
+          }
+        }
 
         candidate_points.push_back(std::make_pair(x,y));
         candidate_start_segment_ids.push_back(idx_1);
@@ -575,3 +613,4 @@ bool X::findExactOneRay(
   else
     return false;
 }
+
