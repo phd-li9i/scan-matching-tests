@@ -46,7 +46,8 @@ class S2MSM
       const double& invalid_rays_sequentially_percent,
       const unsigned int& size_real_scan,
       const unsigned int& size_map,
-      const std::string& method);
+      const std::string& method,
+      const std::string& dataset);
 
     ~S2MSM();
 
@@ -65,6 +66,7 @@ class S2MSM
     unsigned int SIZE_REAL_SCAN;
     unsigned int SIZE_MAP;
     std::string METHOD;
+    std::string DATASET;
 
     input_params input_params_;
 
@@ -142,7 +144,8 @@ class S2MSM
       const double& invalid_rays_sequentially_percent,
       const unsigned int& size_real_scan,
       const unsigned int& size_map,
-      const std::string& method);
+      const std::string& method,
+      const std::string& dataset);
 
     void initLogs();
 

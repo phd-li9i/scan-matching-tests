@@ -329,6 +329,8 @@ void Match::fmtdbh(
     if (!ca_exists)
       cand_angles.push_back(best_cand_angle);
 
+    bool l2_recovery = false;
+
     // ------------------ Candidate angles sifting -----------------------------
     unsigned int min_tc_idx = 0;
     if (cand_angles.size() > 1)
@@ -378,182 +380,166 @@ void Match::fmtdbh(
 
       // Check if the newly-found angle is the angle with the least
       // translation criterion so far
-      if (tcs_sift[min_tc_idx] < best_min_tc)
+      if (tcs_sift[min_tc_idx] != 1000000.0)
       {
-        best_min_tc = tcs_sift[min_tc_idx];
-        best_cand_angle = cand_angles[min_tc_idx];
+        if (tcs_sift[min_tc_idx] < best_min_tc)
+        {
+          best_min_tc = tcs_sift[min_tc_idx];
+          best_cand_angle = cand_angles[min_tc_idx];
+        }
       }
+      else
+        l2_recovery = true;
     }
 
-    rc0_v.push_back(rc0[min_tc_idx]);
-    rc1_v.push_back(rc1[min_tc_idx]);
-
-    // Update the current orientation estimate with the angle that sports the
-    // least translation criterion overall
-    std::get<2>(*result_pose) += cand_angles[min_tc_idx];
-    Utils::wrapAngle(&std::get<2>(*result_pose));
-
-    // ... and store it
-    ts.push_back(std::get<2>(*result_pose));
-
-    // -------------------------------------------------------------------------
-    // -------------------------------------------------------------------------
-    // ---------------- Translation correction phase ---------------------------
-    num_iterations =
-      (current_magnification_size+1)*ip.num_iterations;
-
-    // Place a very heavy burden on the first few iterations:
-    // if a shitty angle has been calculated then the position estimate will
-    // either fall out of the map, or positional bounds will be exceeded;
-    // on the contrary, an angle estimate with low error will not fall for
-    // these traps.
-    /*
-       if (current_magnification_size == 0)
-       num_iterations = 0;
-       if (current_magnification_size == 1)
-       num_iterations = 2;
-       if (current_magnification_size == 2)
-       num_iterations = 3;
-       if (current_magnification_size == 3)
-       num_iterations = 3;
-       if (current_magnification_size == 4)
-       num_iterations = 3;
-       if (current_magnification_size == 5)
-       num_iterations = 4;
-       if (current_magnification_size == 6)
-       num_iterations = 20;
-       */
-
-    /*
-    if (rc0_v.size() > 1)
+    if (!l2_recovery)
     {
-      if (rc0_v[rc0_v.size()-1] >= rc0_v[rc0_v.size()-2] && rc0_v.back() > 0.9)
-        num_iterations++;
+      rc0_v.push_back(rc0[min_tc_idx]);
+      rc1_v.push_back(rc1[min_tc_idx]);
 
-      if (rc0_v[rc0_v.size()-1] < rc0_v[rc0_v.size()-2])
-        num_iterations--;
+      // Update the current orientation estimate with the angle that sports the
+      // least translation criterion overall
+      std::get<2>(*result_pose) += cand_angles[min_tc_idx];
+      Utils::wrapAngle(&std::get<2>(*result_pose));
 
-      if (num_iterations < 0)
-        num_iterations = 0;
-    }
-    */
+      // ... and store it
+      ts.push_back(std::get<2>(*result_pose));
+
+      // -------------------------------------------------------------------------
+      // -------------------------------------------------------------------------
+      // ---------------- Translation correction phase ---------------------------
+      num_iterations =
+        (current_magnification_size+1)*ip.num_iterations;
+
+      // Place a very heavy burden on the first few iterations:
+      // if a shitty angle has been calculated then the position estimate will
+      // either fall out of the map, or positional bounds will be exceeded;
+      // on the contrary, an angle estimate with low error will not fall for
+      // these traps.
+      /*
+         if (current_magnification_size == 0)
+         num_iterations = 0;
+         if (current_magnification_size == 1)
+         num_iterations = 2;
+         if (current_magnification_size == 2)
+         num_iterations = 3;
+         if (current_magnification_size == 3)
+         num_iterations = 3;
+         if (current_magnification_size == 4)
+         num_iterations = 3;
+         if (current_magnification_size == 5)
+         num_iterations = 4;
+         if (current_magnification_size == 6)
+         num_iterations = 20;
+         */
+
+      /*
+         if (rc0_v.size() > 1)
+         {
+         if (rc0_v[rc0_v.size()-1] >= rc0_v[rc0_v.size()-2] && rc0_v.back() > 0.9)
+         num_iterations++;
+
+         if (rc0_v[rc0_v.size()-1] < rc0_v[rc0_v.size()-2])
+         num_iterations--;
+
+         if (num_iterations < 0)
+         num_iterations = 0;
+         }
+         */
 
 
 
-    int tr_iterations = -1;
-    double int_time_trans = 0.0;
+      int tr_iterations = -1;
+      double int_time_trans = 0.0;
 
 #if (defined TIMES) || (defined LOGS)
-    std::chrono::high_resolution_clock::time_point start_translation =
-      std::chrono::high_resolution_clock::now();
+      std::chrono::high_resolution_clock::time_point start_translation =
+        std::chrono::high_resolution_clock::now();
 #endif
 
-    double trans_criterion = Translation::tff(real_scan,
-      *result_pose, map, num_iterations, ip.xy_bound, true, r2rp,
-      &tr_iterations, &intersections_time, result_pose);
+      double trans_criterion = Translation::tff(real_scan,
+        *result_pose, map, num_iterations, ip.xy_bound, true, r2rp,
+        &tr_iterations, &intersections_time, result_pose);
 
 #if (defined TIMES) || (defined LOGS)
-    std::chrono::high_resolution_clock::time_point end_translation =
-      std::chrono::high_resolution_clock::now();
+      std::chrono::high_resolution_clock::time_point end_translation =
+        std::chrono::high_resolution_clock::now();
 
-    op->translation_times += std::chrono::duration_cast<
-      std::chrono::duration<double> >(end_translation-start_translation).count();
+      op->translation_times += std::chrono::duration_cast<
+        std::chrono::duration<double> >(end_translation-start_translation).count();
 
-    op->intersections_times += intersections_time.count();
+      op->intersections_times += intersections_time.count();
 #endif
 
 #if (defined LOGS)
-    op->translation_iterations += tr_iterations;
+      op->translation_iterations += tr_iterations;
 #endif
 
-    tc_v.push_back(trans_criterion);
+      tc_v.push_back(trans_criterion);
 
 #if defined (DEBUG)
-    printf("rc0 = %f\n", rc0_v.back());
-    printf("rc1 = %f\n", rc1_v.back());
-    printf("tc  = %f\n", tc_v.back());
+      printf("rc0 = %f\n", rc0_v.back());
+      printf("rc1 = %f\n", rc1_v.back());
+      printf("tc  = %f\n", tc_v.back());
 #endif
 
-    xs.push_back(std::get<0>(*result_pose));
-    ys.push_back(std::get<1>(*result_pose));
+      xs.push_back(std::get<0>(*result_pose));
+      ys.push_back(std::get<1>(*result_pose));
 
 #if (defined LOGS)
-    std::tuple<double,double,double> traj_i;
-    std::get<0>(traj_i) = xs.back();
-    std::get<1>(traj_i) = ys.back();
-    std::get<2>(traj_i) = ts.back();
-    op->trajectory.push_back(traj_i);
+      std::tuple<double,double,double> traj_i;
+      std::get<0>(traj_i) = xs.back();
+      std::get<1>(traj_i) = ys.back();
+      std::get<2>(traj_i) = ts.back();
+      op->trajectory.push_back(traj_i);
 #endif
 
 
-    // ----------------------- Recovery modes ----------------------------------
-    bool l2_recovery = false;
+      // ----------------------- Recovery modes ----------------------------------
 
-    // Perilous pose at exterior of map's bounds detected
-    if (tc_v.back() == -2.0)
-    {
-#if defined (DEBUG)
-      printf("Will trigger recovery due to condition 0\n");
-#endif
-      l2_recovery = true;
-    }
-
-/*
-    // Detect non-smooth entry into maximum magnification size
-    if (current_magnification_size >= max_magnification_size-1)
-    {
-      if(rc0_v.back() < 0.99)
+      // Perilous pose at exterior of map's bounds detected
+      if (tc_v.back() == -2.0)
       {
 #if defined (DEBUG)
-        printf("Will trigger recovery due to condition 2\n");
+        printf("Will trigger recovery due to condition 0\n");
 #endif
         l2_recovery = true;
       }
-    }
-*/
 
-    // Impose strict measures when on the final straight
-    if (current_magnification_size >= max_magnification_size)
-    {
-      /*
-      if(rc0_v.back() < 0.995)
+
+      // Impose strict measures when on the final straight
+      if (current_magnification_size >= max_magnification_size)
+      {
+        // Detect when stuck at awkward pose
+        // trans_criterion is a measure of the deviation between rays from the
+        // same pose; wherefore this should be proportionate to the
+        // square root of the sum of variance estimates of the laser's rays
+        // and the rays of the virtual scan
+        // (assuming they are distributed normally)
+        /*
+        if (tc_v.back() > 2*sqrtf(ip.sigma_noise_real*ip.sigma_noise_real+
+            ip.sigma_noise_map*ip.sigma_noise_map)
+          + 0.001)
+        {
+#if defined (DEBUG)
+          printf("Will trigger recovery due to condition 3\n");
+#endif
+          l2_recovery = true;
+        }
+        */
+      }
+
+      // Do not allow more than `max_counter` iterations per resolution
+      if (counter > max_counter)
       {
 #if defined (DEBUG)
-        printf("Will trigger recovery due to condition 2.2\n");
+        printf("Will trigger recovery due to condition 4\n");
 #endif
-        l2_recovery = true;
+        //l2_recovery = true;
+
+        counter = 0;
+        current_magnification_size++;
       }
-      */
-
-      // Detect when stuck at awkward pose
-      // trans_criterion is a measure of the deviation between rays from the
-      // same pose; wherefore this should be proportionate to the
-      // square root of the sum of variance estimates of the laser's rays
-      // and the rays of the virtual scan
-      // (assuming they are distributed normally)
-      /*
-      if (tc_v.back() > 2*sqrtf(ip.sigma_noise_real*ip.sigma_noise_real+
-                                ip.sigma_noise_map*ip.sigma_noise_map)
-                          + 0.001)
-      {
-#if defined (DEBUG)
-        printf("Will trigger recovery due to condition 3\n");
-#endif
-        l2_recovery = true;
-      }
-      */
-    }
-
-    // Do not allow more than `max_counter` iterations per resolution
-    if (counter > max_counter)
-    {
-#if defined (DEBUG)
-      printf("Will trigger recovery due to condition 4\n");
-#endif
-      //l2_recovery = true;
-
-      counter = 0;
-      current_magnification_size++;
     }
 
 
@@ -790,319 +776,5 @@ void Match::l2recovery(
      */
 
   while(!Utils::generatePose(input_pose, map,
-      1*xy_bound, t_bound, 0.0, output_pose));
+      1*xy_bound, t_bound, 0.0, 100000000, output_pose));
 }
-
-
-/*******************************************************************************
-  void Match::skg(
-  const std::vector< double >& real_scan,
-  const std::tuple<double,double,double>& real_pose,
-  const std::tuple<double,double,double>& virtual_pose,
-  const std::vector< std::pair<double,double> >& map,
-  const fftw_plan& r2rp,
-  const input_params& ip, output_params* op,
-  std::tuple<double,double,double>* result_pose)
-  {
-#if defined (PRINTS)
-printf("virtual pose (%f,%f,%f) [skg1]\n",
-std::get<0>(virtual_pose),
-std::get<1>(virtual_pose),
-std::get<2>(virtual_pose));
-#endif
-
-std::chrono::high_resolution_clock::time_point start =
-std::chrono::high_resolution_clock::now();
-
- *result_pose = virtual_pose;
-
- std::tuple<double,double,double> zero_pose;
- std::get<0>(zero_pose) = 0.0;
- std::get<1>(zero_pose) = 0.0;
- std::get<2>(zero_pose) = 0.0;
-
-// Real scan points
-std::vector< std::pair<double,double> > real_scan_points;
-Utils::scan2points(real_scan, zero_pose, &real_scan_points);
-
-double prev_error = 1000.0;
-double prev_d = -1.0;
-double e_x = 0.0;
-double e_y = 0.0;
-
-
-std::vector<double> xs;
-std::vector<double> ys;
-std::vector<double> ts;
-
-unsigned int it;
-for (it = 0; it < ip.num_iterations; it++)
-{
-std::vector<double> virtual_scan;
-
-// Compute the virtual scan ...
-Utils::scanFromPose(*result_pose, map, real_scan.size(), &virtual_scan);
-
-// -------------------------------------------------------------------------
-// Estimate translational displacement
-//std::vector<double> d_v;
-//double norm_x1 = 0.0;
-//std::pair<double,double> errors_xy = Translation::tffCore(
-//real_scan, virtual_scan, std::get<2>(*result_pose), prev_error,
-//r2rp, &d_v, &norm_x1);
-//e_x = errors_xy.first;
-//e_y = errors_xy.second;
-
-e_x = std::get<0>(real_pose) - std::get<0>(*result_pose);
-e_y = std::get<1>(real_pose) - std::get<1>(*result_pose);
-
-
-// ... and its 2D planar representation
-//std::vector< std::pair<double,double> > virtual_scan_points;
-//Utils::scan2points(virtual_scan, zero_pose, &virtual_scan_points);
-//Utils::points2scan(virtual_scan_points, zero_pose, &virtual_scan);
-
-// -------------------------------------------------------------------------
-// Compute rotation exploiting the above estimates
-
-// Compute R1, V1
-std::vector<double> R1 = DFTUtils::getFirstDFTCoefficient(real_scan, r2rp);
-std::vector<double> V1 = DFTUtils::getFirstDFTCoefficient(virtual_scan, r2rp);
-
-// Compute delta_x, delta_y
-std::vector< std::pair<double,double> > real_scan_points;
-Utils::scan2points(real_scan, real_pose, &real_scan_points);
-
-std::vector< std::pair<double,double> > virtual_scan_points;
-Utils::scan2points(virtual_scan, *result_pose, &virtual_scan_points);
-
-std::pair<double,double> d =
-Utils::computeDeltaXY(real_scan_points, virtual_scan_points);
-
-
-double dx = d.first;
-double dy = d.second;
-
-// This is the real deal
-double nomin = R1[1]*(V1[0] + (e_x-dx)) + R1[0]*(-V1[1] + (e_y-dy));
-double denom = R1[0]*(V1[0] + (e_x-dx)) + R1[1]*(+V1[1] - (e_y-dy));
-
-double mov_t = atan(nomin/denom);
-Utils::wrapAngle(&mov_t);
-
-
-// Update pose
-std::get<0>(*result_pose) += e_x;
-std::get<1>(*result_pose) += e_y;
-std::get<2>(*result_pose) += mov_t;
-Utils::wrapAngle(&std::get<2>(*result_pose));
-
-xs.push_back(std::get<0>(*result_pose));
-ys.push_back(std::get<1>(*result_pose));
-ts.push_back(std::get<2>(*result_pose));
-
-if(!Utils::isPositionInMap(*result_pose, map))
-{
-  l2recovery(virtual_pose, map, ip.xy_bound, ip.t_bound, result_pose);
-  it = 0;
-}
-
-prev_error = sqrtf(e_x*e_x + e_y*e_y);
-
-#if defined (PRINTS)
-printf("result pose (%f,%f,%f) [skg1]\n",
-  std::get<0>(*result_pose),
-  std::get<1>(*result_pose),
-  std::get<2>(*result_pose));
-#endif
-}
-
-
-std::chrono::high_resolution_clock::time_point end =
-std::chrono::high_resolution_clock::now();
-
-std::chrono::duration<double> elapsed =
-std::chrono::duration_cast< std::chrono::duration<double> >(end-start);
-op->exec_time = elapsed.count();
-
-op->translation_iterations = it;
-op->rotation_iterations = it;
-
-#if defined (PRINTS)
-printf("output pose (%f,%f,%f) [skg1]\n",
-  std::get<0>(*result_pose),
-  std::get<1>(*result_pose),
-  std::get<2>(*result_pose));
-#endif
-}
-*/
-
-
-/*******************************************************************************
-  void Match::skgIt(
-  const std::vector< double >& real_scan,
-  const std::tuple<double,double,double>& real_pose,
-  const std::tuple<double,double,double>& virtual_pose,
-  const std::vector< std::pair<double,double> >& map,
-  const unsigned int& max_translation_iterations,
-  const double& xy_bound, const double& t_bound,
-  int* result_iterations,
-  double* result_time,
-  double* intersections_time,
-  std::tuple<double,double,double>* result_pose)
-  {
-#if defined (PRINTS)
-printf("virtual pose in  (%f,%f,%f) [testDFT]\n",
-std::get<0>(virtual_pose),
-std::get<1>(virtual_pose),
-std::get<2>(virtual_pose));
-#endif
-
- *result_pose = virtual_pose;
-
- std::tuple<double,double,double> zero_pose;
- std::get<0>(zero_pose) = 0.0;
- std::get<1>(zero_pose) = 0.0;
- std::get<2>(zero_pose) = 0.0;
-
-//*
-std::chrono::high_resolution_clock::time_point start =
-std::chrono::high_resolution_clock::now();
-
-// Prepare real scan and real scan points
-std::vector< std::pair<double,double> > real_scan_points;
-Utils::scan2points(real_scan, zero_pose, &real_scan_points);
-int c = 4;
-real_scan_points =
-X::find(zero_pose, real_scan_points, pow(2,c)*real_scan.size());
-
-
-int one_time_iterations = 0;
-double criterion = 100.0;
-std::tuple<double,double,double> prev_pose = *result_pose;
-
-int i_min = 1;
-int i_max = 100;
-int i = i_min;
-
-
-
-double prev_t = 10000.0;
-
-std::vector< std::tuple<double,double,double> > poses_store;
-std::vector<double> criteria;
-std::vector<double> ds;
-std::vector<double> es;
-
-int num_iterations = 1;
-while (i <= i_max)
-{
-//printf("iteration = %d\n", i);
-//printf("num_iterations = %d\n", num_iterations);
-//printf("resolution = %d\n", c);
-
-// ---------------------------- ROTATION -----------------------------------
-std::pair<double,double> rotation_q = Rotation::skg2(real_scan,
-real_scan_points, *result_pose, map, result_pose, false, pow(2,c)*real_scan.size());
-
-ds.push_back(rotation_q.first);
-es.push_back(rotation_q.second);
-poses_store.push_back(*result_pose);
-
-
-
-// -------------------------- TRANSLATION ----------------------------------
-double intersections_time;
-criterion = Translation::tff(real_scan, real_pose, *result_pose, map,
-  num_iterations, ip.xy_bound, false, &one_time_iterations, &intersections_time, result_pose);
-
-criteria.push_back(criterion);
-
-
-
-double dx = std::abs(std::get<0>(virtual_pose)-std::get<0>(*result_pose));
-double dy = std::abs(std::get<1>(virtual_pose)-std::get<1>(*result_pose));
-bool cond_x = dx > 2*ip.xy_bound;
-bool cond_y = dy > 2*ip.xy_bound;
-
-if (criterion == -2.0 || cond_x || cond_y)
-{
-  printf("Generating new pose due to spatial constraints\n");
-
-  do Utils::generatePose(virtual_pose, ip.xy_bound,
-    ip.t_bound, result_pose);
-  while(!Utils::isPositionInMap(*result_pose, map));
-
-  if (poses_store.size() > 0 && ds.size() > 0)
-  {
-    int min_idx = std::min_element(es.begin(), es.end()) - es.begin();
-    std::get<2>(*result_pose) = std::get<2>(poses_store[min_idx]);
-  }
-
-
-  i = i_min;
-  num_iterations = i_min;
-  start = std::chrono::high_resolution_clock::now();
-
-  continue;
-}
-
-//printf("d = %f\n", ds.back());
-//printf("e = %f\n", es.back());
-//printf("criterion: %f\n", criterion);
-
-if (ds.size() > 1)
-{
-  if (ds[ds.size()-1] <= ds[ds.size()-2])
-    num_iterations += 1;
-}
-
-if (num_iterations < 1)
-  num_iterations = 1;
-
-
-  // Terminal condition
-  bool termination_cond = ds.back() <= 0.000005 && es.back() <= 0.005;
-
-if (termination_cond)
-  break;
-  else
-{
-  if (i == i_max)
-  {
-    printf("Generating new pose due to terminal condition violation\n");
-    do Utils::generatePose(virtual_pose, ip.xy_bound,
-      ip.t_bound, result_pose);
-    while(!Utils::isPositionInMap(*result_pose, map));
-
-    i = i_min;
-    num_iterations = i;
-    start = std::chrono::high_resolution_clock::now();
-
-    continue;
-  }
-}
-
-*result_iterations += one_time_iterations;
-prev_pose = *result_pose;
-prev_t = std::get<2>(*result_pose);
-
-i++;
-}
-
-
-#if defined (PRINTS)
-printf("result pose (%f,%f,%f) [testDFT]\n",
-  std::get<0>(*result_pose),
-  std::get<1>(*result_pose),
-  std::get<2>(*result_pose));
-#endif
-
-std::chrono::high_resolution_clock::time_point end =
-std::chrono::high_resolution_clock::now();
-std::chrono::duration<double> elapsed =
-std::chrono::duration_cast< std::chrono::duration<double> >(end-start);
-
-*result_time = elapsed.count();
-}
-*/

@@ -63,11 +63,13 @@ class Utils
       const std::tuple<double,double,double>& base_pose,
       const std::vector< std::pair<double,double> >& map,
       const double& dxy, const double& dt, const double& dist_threshold,
-      std::tuple<double,double,double>* real_pose);
+      const unsigned int& max_tries,
+      std::tuple<double,double,double>* real_pose) ;
 
     static bool generatePoseWithinMap(
       const std::vector< std::pair<double,double> >& map,
       const double& dist_threshold,
+      const unsigned int& max_tries,
       std::tuple<double,double,double>* pose);
 
     static bool isPositionInMap(

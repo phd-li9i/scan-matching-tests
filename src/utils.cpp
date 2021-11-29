@@ -166,6 +166,7 @@ bool Utils::generatePose(
   const std::tuple<double,double,double>& base_pose,
   const std::vector< std::pair<double,double> >& map,
   const double& dxy, const double& dt, const double& dist_threshold,
+  const unsigned int& max_tries,
   std::tuple<double,double,double>* real_pose)
 {
   assert(dxy >= 0.0);
@@ -195,6 +196,7 @@ bool Utils::generatePose(
   // We assume that the lidar sensor is distanced from the closest obstacle
   // by a certain amount (e.g. the radius of a circular base)
   bool pose_found = false;
+  unsigned int failed_tries = 0;
   while (!pose_found)
   {
     pose_found = true;
@@ -219,6 +221,13 @@ bool Utils::generatePose(
       }
     }
     else pose_found = false;
+
+    if (!pose_found)
+    {
+      failed_tries++;
+      if (failed_tries > max_tries)
+        return false;
+    }
   }
 
   *real_pose = real_pose_ass;
@@ -241,6 +250,7 @@ bool Utils::generatePose(
 bool Utils::generatePoseWithinMap(
   const std::vector< std::pair<double,double> >& map,
   const double& dist_threshold,
+  const unsigned int& max_tries,
   std::tuple<double,double,double>* pose)
 {
   // A temp real pose
@@ -287,6 +297,7 @@ bool Utils::generatePoseWithinMap(
   // We assume that the lidar sensor is distanced from the closest obstacle
   // by a certain amount (e.g. the radius of a circular base)
   bool pose_found = false;
+  unsigned int failed_tries = 0;
   while (!pose_found)
   {
     pose_found = true;
@@ -308,6 +319,13 @@ bool Utils::generatePoseWithinMap(
           pose_found = false;
           break;
         }
+      }
+
+      if (!pose_found)
+      {
+        failed_tries++;
+        if (failed_tries > max_tries)
+          return false;
       }
     }
     else pose_found = false;

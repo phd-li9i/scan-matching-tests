@@ -2,6 +2,7 @@
 #define DATSET_UTILS_H
 
 #include <vector>
+#include <fstream>
 #include <tuple>
 #include <utility>
 #include <math.h>
@@ -32,10 +33,11 @@ class DatasetUtils
       std::vector<double>* range,
       std::tuple<double,double,double>* pose);
 
+
     static void printDataset(const char* dataset_filepath);
 
-    static void splitDataset();
-
+    static void splitDataset(const char* dataset_filepath);
+    static void splitCarmenDataset(const char* dataset_filepath);
 };
 
 #endif

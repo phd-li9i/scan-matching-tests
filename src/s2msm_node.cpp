@@ -2,7 +2,7 @@
 
 int main(int argc, char** argv)
 {
-  if (argc < 11)
+  if (argc < 14)
     S2MSM *obj = new S2MSM();
   else
   {
@@ -19,6 +19,7 @@ int main(int argc, char** argv)
     double size_real_scan = std::stod(argv[11]);
     double size_map = std::stod(argv[12]);
     std::string method = argv[13];
+    std::string dataset = argv[14];
 
     assert(max_iterations > 0);
     assert(num_iterations > 0);
@@ -46,7 +47,8 @@ int main(int argc, char** argv)
       invalid_rays_sequentially_percent,
       size_real_scan,
       size_map,
-      method);
+      method,
+      dataset);
   }
 
   return 0;

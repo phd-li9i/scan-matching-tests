@@ -7,7 +7,7 @@ S2MSM::S2MSM()
   printf("[S2MSM] Starting with default params \n");
 
   // init params
-  initParams(1, 1, 0, 778, 0.20, M_PI/4, 0.0, 0.0, 0.0, 0.0, 360, 180, "FMT");
+  initParams(1, 1, 0, 778, 0.20, M_PI/4, 0.0, 0.0, 0.0, 0.0, 360, 180, "FMT", "censi");
 
   cacheFFTW3Plans(SIZE_REAL_SCAN);
 
@@ -36,7 +36,8 @@ S2MSM::S2MSM(
   const double& invalid_rays_sequentially_percent,
   const unsigned int& size_real_scan,
   const unsigned int& size_map,
-  const std::string& method)
+  const std::string& method,
+  const std::string& dataset)
 {
   printf("[S2MSM] Starting with custom params \n");
 
@@ -54,7 +55,8 @@ S2MSM::S2MSM(
     invalid_rays_sequentially_percent,
     size_real_scan,
     size_map,
-    method);
+    method,
+    dataset);
 
     cacheFFTW3Plans(SIZE_REAL_SCAN);
 
@@ -63,6 +65,15 @@ S2MSM::S2MSM(
 #if defined (LOGS)
   initLogs();
 #endif
+
+  /* snippet to split one carmen log, e.g.
+  ./s2msm_node 1 100 0 1 0.2 0.786 0.01 0.0 0 0 360 180 SKG mit_killian
+  std::string p = base_path_+"/../datasets/"+DATASET;
+  const char* pp = p.c_str();
+  DatasetUtils::splitCarmenDataset(pp);
+
+  return;
+  */
 
   // Start tests
   performTests();
@@ -489,13 +500,21 @@ S2MSM::generateMapConfiguration(
 
   // GENERATE REAL POSE (perhaps, sir?) ----------------------------------------
   // Generate a new pose in the map or take that from the dataset
+  unsigned int num_real_pose_generation_tries = 0;
+  double radius_r = 0.5;
+  unsigned int max_tries = 1000;
   if (generate_real_pose)
   {
-    //while(!Utils::generatePose(dataset_pose, *map,
-    //10*XY_UNIFORM_DISPLACEMENT, 0.0, 0.25,
-    //real_pose));
+    while(!Utils::generatePoseWithinMap(*map, radius_r, max_tries, real_pose))
+    {
+      num_real_pose_generation_tries++;
 
-    while(!Utils::generatePoseWithinMap(*map, 0.5, real_pose));
+      if (num_real_pose_generation_tries > max_tries)
+      {
+        *real_pose = dataset_pose;
+        break;
+      }
+    }
 
     // Limit precision
     // http://www.cplusplus.com/forum/general/222965/#msg1022316
@@ -518,8 +537,16 @@ S2MSM::generateMapConfiguration(
   //std::get<2>(*real_pose) = 0.0;std::get<2>(dataset_pose);
 
   // GENERATE VIRTUAL POSE -----------------------------------------------------
+  double radius_v = 0.25;
   while(!Utils::generatePose(*real_pose, *map,
-      XY_UNIFORM_DISPLACEMENT, T_UNIFORM_DISPLACEMENT, 0.25, virtual_pose));
+      XY_UNIFORM_DISPLACEMENT, T_UNIFORM_DISPLACEMENT,
+      radius_v, max_tries, virtual_pose))
+  {
+    radius_v -= 0.01;
+
+    if (radius_v == 0.0)
+      *virtual_pose = *real_pose;
+  }
 
   std::vector< std::pair<double,double> > v_intersections =
     X::findExact(*virtual_pose, *map, SIZE_REAL_SCAN);
@@ -566,7 +593,7 @@ S2MSM::initLogs()
     + std::to_string(INVALID_RAYS_SEQUENTIALLY_PERCENT);
 
   std::string base_log_path_str =
-    base_path_ + "/../logs/" + METHOD + "/" + configuration_str;
+    base_path_ + "/../logs/" + METHOD + "/" + DATASET + "/" + configuration_str;
 
   // Log real poses to file ----------------------------------------------------
   real_poses_filename_ =
@@ -656,7 +683,8 @@ S2MSM::initParams(const unsigned int& max_iterations,
   const double& invalid_rays_sequentially_percent,
   const unsigned int& size_real_scan,
   const unsigned int& size_map,
-  const std::string& method)
+  const std::string& method,
+  const std::string& dataset)
 {
   MAX_ITERATIONS = max_iterations;
   NUM_ITERATIONS = num_iterations;
@@ -671,6 +699,7 @@ S2MSM::initParams(const unsigned int& max_iterations,
   SIZE_REAL_SCAN = size_real_scan;
   SIZE_MAP = size_map;
   METHOD = method;
+  DATASET = dataset;
 
   input_params_.num_iterations = max_iterations;
   input_params_.xy_bound = xy_uniform_displacement;
@@ -844,7 +873,7 @@ S2MSM::invalidateRaysSequentially(std::vector<double>* scan,
 void S2MSM::performTests()
 {
   // The base string of one dataset
-  std::string base_str = base_path_ + "/../dataset/dataset_";
+  std::string base_str = base_path_ + "/../datasets/" + DATASET + "/dataset_";
 
   // The errors, iterations, and execution times per dataset,
   // for all iterations

@@ -248,12 +248,14 @@ void DatasetUtils::printDataset(const char* dataset_filepath)
 
 
 /*******************************************************************************
-void DatasetUtils::splitDataset()
+ * dataset_filepath should be absolute
+ */
+void DatasetUtils::splitDataset(const char* dataset_filepath)
 {
   // First read the first two numbers: they show
   // (1) the number of scans and
   // (2) the number of rays per scan.
-  FILE* fp = fopen(dataset_filepath_, "r");
+  FILE* fp = fopen(dataset_filepath, "r");
   if (fp == NULL)
     exit(EXIT_FAILURE);
 
@@ -278,7 +280,7 @@ void DatasetUtils::splitDataset()
     free(line);
 
   // Begin for all scans
-  fp = fopen(dataset_filepath_, "r");
+  fp = fopen(dataset_filepath, "r");
   line = NULL;
   len = 0;
 
@@ -292,11 +294,10 @@ void DatasetUtils::splitDataset()
   while ((getline(&line, &len, fp)) != -1)
   {
     // Open output file
-    std::string dataset_scan = base_path_ + "/../dataset/dataset_" +
-      std::to_string(scan_id) + ".txt";
+    std::string dataset_scan = std::string(dataset_filepath) +
+      "/../dataset_" + std::to_string(scan_id) + ".txt";
 
     std::ofstream file(dataset_scan.c_str(), std::ios::app);
-
 
     line_number++;
 
@@ -352,4 +353,102 @@ void DatasetUtils::splitDataset()
       printf("[S2MSM] Could not split dataset\n");
   }
 }
-*/
+
+
+/*******************************************************************************
+  * dataset_path should be absolute; it is not the full path
+  * (e.g. /home/pp/dataset.txt) but /home/pp
+  */
+void DatasetUtils::splitCarmenDataset(const char* dataset_path)
+{
+  std::string df = std::string(dataset_path) + "/dataset.txt";
+  const char* dataset_filepath = df.c_str();
+
+  FILE* fp = fopen(dataset_filepath, "r");
+  if (fp == NULL)
+    exit(EXIT_FAILURE);
+
+  char* line = NULL;
+  size_t len = 0;
+
+  unsigned int line_number = 0;
+  long int num_scans = 0;
+  long int num_rays = 0;
+  while ((getline(&line, &len, fp)) != -1 && line_number < 1)
+  {
+    line_number++;
+
+    char * pEnd;
+    num_scans = strtol (line, &pEnd, 10);
+    num_rays = strtol (pEnd, &pEnd, 10);
+  }
+
+  fclose(fp);
+
+  if (line)
+    free(line);
+
+
+
+  // Begin for all scans
+  fp = fopen(dataset_filepath, "r");
+  line = NULL;
+  len = 0;
+
+  // The line number read at each iteration
+  line_number = 0;
+
+  // loop
+  int scan_id = 0;
+  bool new_scan = true;
+
+  while ((getline(&line, &len, fp)) != -1)
+  {
+    std::string line_str = std::string(line);
+    size_t npos = line_str.find("FLASER");
+
+    // if found at position 0 it's a match
+    if (npos != 0 || npos == std::string::npos)
+      continue;
+
+    // Find the laser's number of rays
+    std::string num_rays_str = line_str.substr(7,3);
+    int num_rays = std::stoi(num_rays_str);
+
+
+    std::string delimiter = " ";
+
+    std::vector<std::string> line_vec;
+    size_t pos = 0;
+    while ((pos = line_str.find(delimiter)) != std::string::npos)
+    {
+      line_vec.push_back(line_str.substr(0, pos));
+      line_str.erase(0, pos + delimiter.length());
+    }
+
+
+    // Open output file
+    std::string dataset_scan = std::string(dataset_path) +
+      "/dataset_" + std::to_string(scan_id) + ".txt";
+
+    std::ofstream file(dataset_scan.c_str(), std::ios::app);
+
+
+    if (file.is_open())
+    {
+      file << "1 " << num_rays_str << std::endl;
+
+      for (unsigned i = 2; i < num_rays+2; i++)
+        file << line_vec[i] << std::endl;
+
+      file << line_vec[num_rays+2] << " "
+           << line_vec[num_rays+3] << " "
+           << line_vec[num_rays+4] << std::endl;
+    }
+
+    // Finished with this scan
+    scan_id++;
+
+    file.close();
+  }
+}
